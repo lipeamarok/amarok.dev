@@ -1,0 +1,29 @@
+{
+  "name": "amarok.dev",
+  "version": "1.0.0",
+  "description": "Building freedom with code. Personal portfolio of Filipe Arouck.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "lint:check": "prettier --check .",
+    "lint:fix": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lipeamarok/amarok.dev.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lipeamarok/amarok.dev/issues"
+  },
+  "homepage": "https://github.com/lipeamarok/amarok.dev#readme",
+  "dependencies": {
+    "next": "^16.0.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
