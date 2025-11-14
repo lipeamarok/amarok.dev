@@ -1,5 +1,51 @@
-.next
+# ========================================
+# Node / Next.js
+# ========================================
+node_modules/
+.npm/
+dist/
+.next/
+out/
+build/
+.cache/
+*.log
+*.pid
+*.seed
+*.pid.lock
 
-# dependencies
-/node_modules
+# Turbo / SWC / Rust generated
+.turbo/
+.swp
+.swc/
 
+# TypeScript
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor artifacts
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+
+.idea/
+*.swp
+
+# Lock files backups
+package-lock.json.*
+yarn.lock
+yarn-error.log
+pnpm-lock.yaml.*
+
+# Tailwind JIT cache
+.tailwind/
