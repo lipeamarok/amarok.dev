@@ -1,8 +1,14 @@
 // app/layout.js
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { Background } from "./components/background";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata = {
   title: "amarok.dev",
@@ -11,13 +17,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className}`}>
+    <html lang="pt-BR">
+      <body className={inter.className}>
+        <Background intensity={0.8} enableGrain={true} enableBeams={false} />
         {children}
-
-        <footer className="absolute bottom-5 w-full text-center text-xs text-gray-500">
-          © {new Date().getFullYear()} amarok.dev — crafted by Filipe Amarok
-        </footer>
       </body>
     </html>
   );

@@ -19,11 +19,14 @@
   },
   "homepage": "https://github.com/lipeamarok/amarok.dev#readme",
   "dependencies": {
+    "framer-motion": "^12.23.24",
     "next": "^16.0.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@types/node": "24.10.1",
+    "@types/react": "19.2.4",
     "autoprefixer": "^10.4.22",
     "eslint": "^9.39.1",
     "eslint-config-next": "^16.0.3",
