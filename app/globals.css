@@ -118,5 +118,5 @@ body {
 }
 
 .animate-strikethrough {
-  animation: strikethrough 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
+  animation: strikethrough 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.5s forwards;
 }

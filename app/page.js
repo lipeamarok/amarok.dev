@@ -60,13 +60,21 @@ export default function Home() {
         </motion.p>
       </div>
 
-      {/* Botão para página de projetos */}
-      <Link
-        href="/projects"
-        className="relative z-10 mt-12 px-6 py-3 rounded-xl bg-[#5B9FE3]/15 border border-[#5B9FE3]/25 text-[#5B9FE3] font-medium backdrop-blur-md transition-all duration-300 hover:bg-[#5B9FE3]/25 hover:border-[#5B9FE3]/35 hover:scale-[1.03]"
-      >
-        Don't trust. Verify. →
-      </Link>
+      {/* Botões de navegação */}
+      <div className="relative z-10 mt-12 flex flex-col items-center gap-3">
+        <Link
+          href="/about"
+          className="px-6 py-3 rounded-xl bg-[#5B9FE3]/15 border border-[#5B9FE3]/25 text-[#5B9FE3] font-medium backdrop-blur-md transition-all duration-300 hover:bg-[#5B9FE3]/25 hover:border-[#5B9FE3]/35 hover:scale-[1.03]"
+        >
+          Don't trust. Verify. →
+        </Link>
+        <Link
+          href="/projects"
+          className="px-4 py-1.5 rounded-lg border border-white/10 text-gray-400 text-xs font-medium backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:text-gray-200 hover:bg-white/5"
+        >
+          Projects
+        </Link>
+      </div>
 
       <style jsx>{`
         /* Ajustes responsivos finos para manter .DEV agradavelmente deslocado */

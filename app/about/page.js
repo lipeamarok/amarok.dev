@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import {
   FiCode,
@@ -12,6 +13,7 @@ import {
   FiTool,
   FiGrid,
   FiFeather,
+  FiFolder,
   FiGithub,
   FiMail,
   FiLinkedin,
@@ -25,9 +27,13 @@ import {
   FiAward,
   FiSend,
 } from "react-icons/fi";
+import { translations } from "../locales/about";
 
 export default function AboutPage() {
   const [showScrollButtons, setShowScrollButtons] = useState(false);
+  const [lang, setLang] = useState("pt");
+
+  const t = translations[lang];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,6 +48,7 @@ export default function AboutPage() {
     "hero",
     "story",
     "skills",
+    "projects",
     "values",
     "experience",
     "education",
@@ -80,7 +87,7 @@ export default function AboutPage() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[#5B9FE3]/40 transition-all text-gray-400 hover:text-white"
         >
           <FiArrowLeft className="w-4 h-4" />
-          <span className="text-sm">Voltar</span>
+          <span className="text-sm">{t.backButton}</span>
         </a>
       </div>
 
@@ -104,41 +111,68 @@ export default function AboutPage() {
 
             {/* Conteúdo */}
             <div className="flex-1">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-3">
-                Filipe Amarok
-              </h1>
+              <div className="flex items-center gap-4 mb-3">
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+                  Filipe Amarok
+                </h1>
+
+                {/* Language Toggle */}
+                <button
+                  onClick={() => setLang(lang === "pt" ? "en" : "pt")}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-all group"
+                  aria-label="Toggle language"
+                >
+                  <span
+                    className={`text-xs font-medium transition-colors ${
+                      lang === "pt" ? "text-[#5B9FE3]" : "text-gray-500"
+                    }`}
+                  >
+                    PT
+                  </span>
+                  <span className="text-gray-600">/</span>
+                  <span
+                    className={`text-xs font-medium transition-colors ${
+                      lang === "en" ? "text-[#5B9FE3]" : "text-gray-500"
+                    }`}
+                  >
+                    EN
+                  </span>
+                </button>
+              </div>
 
               <p className="text-lg text-gray-400 leading-relaxed mb-6">
-                Ex-banking professional turned AI & Web3 developer — building intelligent
-                systems that combine autonomy, cryptography, performance and real-world
-                impact.
+                {t.heroDescription}
               </p>
 
               <div className="flex flex-wrap gap-2 mb-8">
                 <span className="px-3 py-1.5 rounded-full bg-[#5B9FE3]/10 border border-[#5B9FE3]/30 text-[#5B9FE3] text-sm font-medium">
-                  AI Engineering
+                  {t.heroTags.ai}
                 </span>
                 <span className="px-3 py-1.5 rounded-full bg-[#5B9FE3]/10 border border-[#5B9FE3]/30 text-[#5B9FE3] text-sm font-medium">
-                  Web3 & Blockchain
+                  {t.heroTags.web3}
                 </span>
                 <span className="px-3 py-1.5 rounded-full bg-[#5B9FE3]/10 border border-[#5B9FE3]/30 text-[#5B9FE3] text-sm font-medium">
-                  High-Performance Computing
+                  {t.heroTags.hpc}
                 </span>
               </div>
 
               {/* Menu de navegação rápida */}
               <div className="bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-xl p-5">
                 <p className="text-xs text-gray-500 uppercase tracking-wider mb-4 font-medium">
-                  Jump to Section
+                  {t.jumpToSection}
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
                   {[
-                    { id: "story", label: "My Journey", icon: FiBook },
-                    { id: "skills", label: "Skills & Stack", icon: FiTerminal },
-                    { id: "values", label: "Values", icon: FiHeart },
-                    { id: "experience", label: "Experience", icon: FiBriefcase },
-                    { id: "education", label: "Education", icon: FiAward },
-                    { id: "contact", label: "Contact", icon: FiSend },
+                    { id: "skills", label: t.navigation.skills, icon: FiTerminal },
+                    { id: "projects", label: t.navigation.projects, icon: FiFolder },
+                    { id: "values", label: t.navigation.values, icon: FiHeart },
+                    {
+                      id: "experience",
+                      label: t.navigation.experience,
+                      icon: FiBriefcase,
+                    },
+                    { id: "education", label: t.navigation.education, icon: FiAward },
+                    { id: "contact", label: t.navigation.contact, icon: FiSend },
                   ].map((section) => {
                     const Icon = section.icon;
                     return (
@@ -164,178 +198,122 @@ export default function AboutPage() {
 
         {/* ========== STORY SECTION ========== */}
         <section id="story" className="space-y-10">
-          <h2 className="text-3xl font-bold text-white">Minha Jornada Tech</h2>
+          <h2 className="text-3xl font-bold text-white">{t.storyTitle}</h2>
 
           <p className="text-gray-300 leading-relaxed text-lg">
-            Meu nome é Filipe Amorim Arouck (ou só @LipeAmarok) e, por quase uma década,
-            vivi intensamente o mercado financeiro. Sou formado em Administração e
-            pós-graduado em Finanças, Investimentos e Banking. Passei por áreas
-            administrativas, atendimento e, finalmente, alcancei a posição de
-            <span className="text-white font-semibold">
-              {" "}
-              Especialista de Investimentos{" "}
-            </span>
-            em um dos maiores bancos da América Latina.
+            {t.story.p1}
+            <span className="text-white font-semibold">{t.story.p1Highlight}</span>
+            {t.story.p1End}
+          </p>
+
+          <p className="text-gray-300 leading-relaxed text-lg">{t.story.p2}</p>
+
+          <p className="text-gray-300 leading-relaxed text-lg">{t.story.p3}</p>
+
+          <p className="text-gray-300 leading-relaxed text-lg">
+            {t.story.p4}
+            <span className="text-white font-semibold">{t.story.p4Highlight}</span>
+            {t.story.p4End}
           </p>
 
           <p className="text-gray-300 leading-relaxed text-lg">
-            E apesar de amar investimentos, uma coisa me consumia diariamente: a pressão
-            comercial, as metas agressivas e, principalmente, a obrigação de vender
-            produtos em que eu não acreditava para pessoas que não precisavam deles.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed text-lg">
-            Decidi sair. Eu precisava respirar.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed text-lg">
-            Foi nesse processo que encontrei algo que mudaria tudo:
-            <span className="text-white font-semibold"> o universo cripto. </span>
-            Pela primeira vez, vi tecnologia, investimento e liberdade individual
-            coexistirem. Mergulhei profundamente em blockchain, Web3 e DeFi. Dali nasceu
-            uma paixão real.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed text-lg">
-            Comecei então a criar conteúdo educativo sobre cripto, investimentos e
-            finanças o que me levou a desbloquear habilidades de edição de vídeo,
-            elaboração de roteiros, criação de designs… e, naturalmente, a aprender sobre
-            <span className="text-white font-semibold"> tráfego pago</span>. E foi aí que
-            algo ficou muito claro:
+            {t.story.p5}
+            <span className="text-white font-semibold">{t.story.p5Highlight}</span>
+            {t.story.p5End}
           </p>
 
           <blockquote className="text-gray-200 text-xl font-semibold text-center">
-            O pequeno empreendedor não vai conseguir. Meta Ads é complexo demais!
+            {t.story.quote1}
           </blockquote>
 
-          <p className="text-gray-300 leading-relaxed text-lg">
-            A pessoa que tem um consultório, um restaurante, um pequeno e-commerce… não
-            tem tempo, paciência ou conhecimento para lidar com a complexidade da
-            plataforma. E contratar uma agência nem sempre é viável. Foi então que pensei:
-          </p>
+          <p className="text-gray-300 leading-relaxed text-lg">{t.story.p6}</p>
 
           <blockquote className="text-gray-200 text-xl italic border-l-4 border-purple-500 pl-4">
-            E se uma IA pudesse ser o especialista em marketing digital que o autônomo
-            precisa?
+            {t.story.quote2}
           </blockquote>
 
           <blockquote className="text-gray-200 text-xl italic border-l-4 border-purple-500 pl-4">
-            E se ela entendesse o contexto, o negócio, o público, a região… e simplesmente
-            fizesse o trabalho pesado de lançar, acompanhar e dar insights sobre
-            campanhas?
+            {t.story.quote3}
           </blockquote>
 
           <p className="text-gray-300 leading-relaxed text-lg">
-            Dessas perguntas nasceu o{" "}
-            <span className="font-semibold text-white">AISYad</span>, meu primeiro grande
-            projeto. Um software SaaS de automação inteligente para Meta Ads. Mas havia um
-            problema:
-            <span className="font-semibold text-white">eu não sabia programar.</span>
+            {t.story.p7}
+            <span className="font-semibold text-white">{t.story.p7Highlight}</span>
+            {t.story.p7Mid}
+            <span className="font-semibold text-white">{t.story.p7End}</span>
           </p>
 
           <p className="text-gray-300 leading-relaxed text-lg">
-            E eu não queria uma solução superficial feita por IA no estilo Lovable, nem
-            terceirizar o desenvolvimento. Se eu realmente queria criar algo
-            transformador, eu precisava aprender de verdade. E mesmo tendo estudado
-            programação (Cobol) e testes de software no passado, eu não lembrava mais de
-            nada... teria que começar{" "}
-            <span className="font-semibold text-white">do zero.</span>
+            {t.story.p8}
+            <span className="font-semibold text-white">{t.story.p8Highlight}</span>
           </p>
 
-          <p className="text-gray-300 leading-relaxed text-lg">
-            Aprendi tudo na unha: APIs, banco de dados, autenticação, arquitetura,
-            infraestrutura. Meses de estudo, erros e construção me levaram a um ponto de
-            virada:
-          </p>
+          <p className="text-gray-300 leading-relaxed text-lg">{t.story.p9}</p>
 
           <p className="text-gray-200 text-xl font-semibold text-center">
-            Eu percebi que posso construir qualquer coisa que eu imaginar. Passei a me
-            sentir imparável.
+            {t.story.quote4}
           </p>
 
           <p className="text-gray-300 leading-relaxed text-lg">
-            Animado por esse novo mundo, e querendo testar minhas habilidades, decidi
-            participar de bounties e hackathons. Encontrei um desafio que parecia feito
-            para mim: <span className="font-semibold">AI DApp Development</span> by
-            JuliaOS / Superteam Solana.
+            {t.story.p10}
+            <span className="font-semibold">{t.story.p10Highlight}</span>
+            {t.story.p10End}
+          </p>
+
+          <p className="text-gray-300 leading-relaxed text-lg">{t.story.p11}</p>
+
+          <p className="text-gray-300 leading-relaxed text-lg">
+            {t.story.p12}
+            <span className="text-white font-semibold">{t.story.p12Highlight}</span>
+            {t.story.p12End}
+            <span className="font-semibold text-white">{t.story.p12Award}</span>
+            {t.story.p12Final}
           </p>
 
           <p className="text-gray-300 leading-relaxed text-lg">
-            O problema? Descobri o desafio faltando menos de 15 dias para o prazo final.
-            Mas participar era inevitável.
+            {t.story.p13}
+            <span className="font-semibold text-white">{t.story.p13Highlight}</span>
+            {t.story.p13End}
           </p>
+
+          <p className="text-gray-300 leading-relaxed text-lg">{t.story.p14}</p>
 
           <p className="text-gray-300 leading-relaxed text-lg">
-            E foi assim que nasceu o
-            <span className="text-white font-semibold"> Ghost Wallet Hunter </span>, um
-            motor forense que orquestra agentes de IA para investigar wallets Solana,
-            detectar padrões suspeitos e identificar fraudes. O projeto me rendeu o{" "}
-            <span className="font-semibold text-white">4º lugar</span>.
+            {t.story.p15}
+            <span className="text-white font-semibold">{t.story.p15Highlight}</span>
+            {t.story.p15End}
           </p>
 
-          <p className="text-gray-300 leading-relaxed text-lg">
-            Nesse processo descobri
-            <span className="font-semibold text-white"> Julia</span>. Uma linguagem de
-            altíssima performance, usada por NASA e Tesla, que combina a velocidade de C,
-            a matemática de MATLAB e a fluidez de Python.
-          </p>
+          <p className="text-gray-300 leading-relaxed text-lg">{t.story.p16}</p>
 
-          <p className="text-gray-300 leading-relaxed text-lg">
-            A motivação de ter sido premiado, mesmo entregando o projeto incompleto, me
-            empurrou ainda mais para o mundo de computação de alta performance. Percebi
-            que poderia usar Julia para algo maior.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed text-lg">
-            Assim nasceu meu projeto mais ousado:
-            <span className="text-white font-semibold"> BugXHunter </span>. Um sistema
-            autônomo de caça a bugs baseado em loops inteligentes de execução e
-            aprendizado, combinando Julia, Rust/Tauri, React e ambientes Docker simulados.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed text-lg">
-            É um projeto privado, para uso pessoal, com foco direto em Bug Bountys, que
-            são programas de recompensas oferecidos por empresas (especialmente do meio
-            cripto) para quem encontra vulnerabilidades reais em seus sistemas.
-          </p>
-
-          <p className="text-gray-300 leading-relaxed text-lg">Um software capaz de:</p>
+          <p className="text-gray-300 leading-relaxed text-lg">{t.story.p17}</p>
           <p className="text-gray-200 text-lg italic border-l-4 border-purple-500 pl-4">
-            Preparar → Entender → Planejar → Executar → Apender → Triar → Reportar → Loop
+            {t.story.cycle}
           </p>
-          <p className="text-gray-300 leading-relaxed text-lg">
-            um ciclo de aprendizado constante, repetindo sprints de ataque com IA real
-            (não apenas prompts), simulando ambientes e evoluindo a cada execução.
-          </p>
+          <p className="text-gray-300 leading-relaxed text-lg">{t.story.p18}</p>
 
           <div
             grid
             className="relative w-full h-64 rounded-xl overflow-hidden border border-white/10 shadow-lg shadow-black/40"
           >
             <p className="text-gray-300 leading-relaxed text-lg font-bold text-center">
-              H O J E
+              {t.story.todayTitle}
             </p>
             <p className="text-gray-300 leading-relaxed text-lg text-center">
-              Sou um profissional que carrega:
+              {t.story.todayIntro}
             </p>
             <ul className="list-disc list-inside text-gray-300 leading-relaxed text-lg text-align-left max-w-2xl mx-auto">
-              <li>10 anos de experiência prática no mercado financeiro</li>
-              <li>Visão de negócio</li>
-              <li>Maturidade de mercado</li>
-              <li>Gosto por aprendizado contínuo e exploração de novas ferramentas</li>
-              <li>Habilidades sólidas em AI Engineering e Web3 Development</li>
-              <li>Paixão por construir soluções tecnológicas que empoderam indivíduos</li>
+              {t.story.todayItems.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
             </ul>
           </div>
         </section>
 
         {/* ========== SKILLS SECTION ========== */}
-
         <section id="skills" className="mt-20">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Habilidades & Tech Stack
-            </h2>
+            <h2 className="text-4xl font-bold text-white mb-4">{t.skillsTitle}</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#5B9FE3] to-transparent mx-auto"></div>
           </div>
 
@@ -490,10 +468,87 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* ========== PROJECTS SECTION ========== */}
+        <section id="projects" className="mt-24">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">{t.projectsTitle}</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#5B9FE3] to-transparent mx-auto"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                slug: "ghost-wallet-hunter",
+                titleImage: "/projects/ghost-wallet-hunter/logo-ghost-hunter_3.png",
+                titleImageWidth: 250,
+                titleImageHeight: 55,
+                imagePlaceholder: "Ghost Wallet Hunter — Demo / Preview",
+                description:
+                  "Forensic intelligence system for Solana wallets powered by seven specialized detective agents. Built in Julia for real-time detection of exploits, fraud patterns and coordinated network behavior.",
+                stack:
+                  "Julia · Oxygen.jl · Solana RPC · React · Vite · Tailwind · Three.js",
+              },
+              {
+                slug: "aisyad",
+                titleImage: "/projects/aisyad/logo-3.png",
+                titleImageWidth: 450,
+                titleImageHeight: 75,
+                imagePlaceholder: "Aisyad — Demo / Preview",
+                description:
+                  "SaaS platform for automating Meta Ads campaigns. Create, optimize and manage ads with AI-driven diagnostics, real-time insights and full OAuth2 integration with Facebook Ads.",
+                stack:
+                  "FastAPI · Python · PostgreSQL · JWT · OAuth2 · Next.js · TypeScript · Zustand · Tailwind",
+              },
+              {
+                slug: "bugxhunter",
+                titleImage: "/projects/bugxhunter/logo_bug.png",
+                titleImageWidth: 220,
+                titleImageHeight: 30,
+                imagePlaceholder: "BugHunter — Demo / Preview",
+                description:
+                  "Autonomous bug hunting system with simulated environments, intelligent orchestration and continuous learning. Powered by Julia for high-performance analysis and Rust/Tauri for secure system operations.",
+                stack: "Julia · Rust · Tauri · React · Docker · AI/ML · SQLite/Postgres",
+              },
+            ].map((project, i) => (
+              <Link
+                key={i}
+                href={`/projects/${project.slug}`}
+                className="block rounded-2xl p-6 bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl transition-all duration-300 cursor-pointer group flex flex-col h-[480px] overflow-hidden hover:scale-[1.03] hover:shadow-[0_20px_60px_-15px_rgba(91,159,227,0.4)] hover:border-[#5B9FE3]/40 hover:bg-white/8"
+              >
+                {/* Placeholder DEMO */}
+                <div className="h-36 flex-shrink-0 rounded-xl bg-gradient-to-br from-[#8e6bff30] to-[#b79aff20] border border-white/10 flex items-center justify-center text-gray-400 transition-all duration-300 text-center px-4 group-hover:from-[#5B9FE3]/20 group-hover:to-[#5B9FE3]/10 group-hover:border-[#5B9FE3]/30 group-hover:text-gray-300">
+                  <span className="text-sm">{project.imagePlaceholder}</span>
+                </div>
+
+                {/* Título + Logo */}
+                <div className="mt-6 flex items-center justify-center gap-4 relative h-14 flex-shrink-0">
+                  <Image
+                    src={project.titleImage}
+                    alt="Project Title"
+                    width={project.titleImageWidth || 300}
+                    height={project.titleImageHeight || 90}
+                    className="object-contain"
+                  />
+                </div>
+
+                {/* Descrição */}
+                <p className="text-gray-300 text-sm leading-relaxed mt-4 flex-grow">
+                  {project.description}
+                </p>
+
+                {/* Stack */}
+                <div className="text-xs text-gray-500 mt-4 pt-4 border-t border-white/10">
+                  {project.stack}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         {/* ========== VALUES SECTION ========== */}
         <section id="values" className="relative mt-24">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Valores & Filosofia</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">{t.valuesTitle}</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#5B9FE3] to-transparent mx-auto"></div>
           </div>
 
@@ -504,7 +559,7 @@ export default function AboutPage() {
               <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-[#5B9FE3]/60 via-[#5B9FE3]/30 to-transparent rounded-full"></div>
               <div className="pl-8">
                 <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#5B9FE3] transition-colors duration-300">
-                  Acredito em liberdade individual como fundamento, não como privilégio.
+                  {t.values.principle1}
                 </h3>
               </div>
             </div>
@@ -514,15 +569,22 @@ export default function AboutPage() {
               <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-[#5B9FE3]/60 via-[#5B9FE3]/30 to-transparent rounded-full"></div>
               <div className="pl-8">
                 <p className="text-lg text-gray-300 leading-relaxed mb-4">
-                  Vejo descentralização não apenas como um conceito técnico, mas como uma
-                  forma de devolver{" "}
-                  <span className="text-white font-medium">autonomia</span>,{" "}
-                  <span className="text-white font-medium">transparência</span> e{" "}
-                  <span className="text-white font-medium">poder de escolha</span> para
-                  pessoas reais.
+                  {t.values.principle2}{" "}
+                  <span className="text-white font-medium">
+                    {t.values.principle2Words[0]}
+                  </span>
+                  ,{" "}
+                  <span className="text-white font-medium">
+                    {t.values.principle2Words[1]}
+                  </span>{" "}
+                  e{" "}
+                  <span className="text-white font-medium">
+                    {t.values.principle2Words[2]}
+                  </span>{" "}
+                  {t.values.principle2End}
                 </p>
                 <p className="text-gray-400 leading-relaxed">
-                  É por isso que tudo o que construo nasce com um princípio simples:
+                  {t.values.principle2Footer}
                 </p>
               </div>
             </div>
@@ -535,9 +597,10 @@ export default function AboutPage() {
 
                 <blockquote className="text-center">
                   <p className="text-3xl md:text-4xl font-bold text-white leading-tight">
-                    Tecnologia deve <span className="text-[#5B9FE3]">libertar</span>,
+                    {t.values.manifesto1}{" "}
+                    <span className="text-[#5B9FE3]">{t.values.manifesto2}</span>,
                     <br />
-                    não aprisionar.
+                    {t.values.manifesto3}
                   </p>
                 </blockquote>
               </div>
@@ -548,17 +611,18 @@ export default function AboutPage() {
               <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-[#5B9FE3]/60 via-[#5B9FE3]/30 to-transparent rounded-full"></div>
               <div className="pl-8 space-y-4">
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  Meu objetivo não é criar projetos bonitos no papel, nem soluções
-                  descartáveis.
+                  {t.values.purpose1}
                 </p>
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  Quero desenvolver{" "}
+                  {t.values.purpose2}{" "}
                   <span className="text-white font-medium">
-                    ferramentas que resolvem problemas reais
+                    {t.values.purpose2Highlight}
                   </span>
-                  , que reduzem fricção, que ampliam possibilidades e que devolvem ao
-                  usuário algo que o sistema tradicional tirou dele:{" "}
-                  <span className="text-[#5B9FE3] font-semibold">controle</span>.
+                  {t.values.purpose2End}{" "}
+                  <span className="text-[#5B9FE3] font-semibold">
+                    {t.values.purpose2Final}
+                  </span>
+                  .
                 </p>
               </div>
             </div>
@@ -568,13 +632,12 @@ export default function AboutPage() {
               <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-[#5B9FE3]/60 via-[#5B9FE3]/30 to-transparent rounded-full"></div>
               <div className="pl-8 space-y-4">
                 <p className="text-lg text-white font-medium leading-relaxed">
-                  Aprendi a construir software porque acredito que boa tecnologia muda
-                  vidas.
+                  {t.values.conclusion1}
                 </p>
                 <p className="text-lg text-white font-medium leading-relaxed">
-                  E construo com intenção porque acredito que{" "}
+                  {t.values.conclusion2}{" "}
                   <span className="text-[#5B9FE3] font-semibold">
-                    propósito importa tanto quanto código
+                    {t.values.conclusion2Highlight}
                   </span>
                   .
                 </p>
@@ -589,9 +652,7 @@ export default function AboutPage() {
         {/* ========== PROFESSIONAL EXPERIENCE SECTION ========== */}
         <section id="experience" className="mt-24">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Experiência Profissional
-            </h2>
+            <h2 className="text-4xl font-bold text-white mb-4">{t.experienceTitle}</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#5B9FE3] to-transparent mx-auto"></div>
           </div>
 
@@ -603,45 +664,31 @@ export default function AboutPage() {
               <div className="pb-8">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
                   <h3 className="text-2xl font-semibold text-white">
-                    Full-Stack Developer
+                    {t.experience.dev.title}
                   </h3>
                   <span className="text-sm text-gray-400 md:text-right mt-1 md:mt-0">
-                    mar 2025 — presente
+                    {t.experience.dev.period}
                   </span>
                 </div>
-                <p className="text-[#5B9FE3] font-medium mb-4">Self-Employed</p>
+                <p className="text-[#5B9FE3] font-medium mb-4">
+                  {t.experience.dev.company}
+                </p>
 
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  Desenvolvimento de soluções completas, com foco em:
+                  {t.experience.dev.description}
                 </p>
 
                 <ul className="space-y-2 text-gray-300 mb-4">
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#5B9FE3] mt-1.5">•</span>
-                    <span>Aplicações SaaS com IA aplicada</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#5B9FE3] mt-1.5">•</span>
-                    <span>
-                      Integrações complexas via API (Meta Ads, OpenAI, Solana RPC)
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#5B9FE3] mt-1.5">•</span>
-                    <span>Sistemas de alta performance usando Julia, Rust e Python</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#5B9FE3] mt-1.5">•</span>
-                    <span>Automações, multi-agents e pipelines inteligentes</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#5B9FE3] mt-1.5">•</span>
-                    <span>Arquitetura modular, clean code e boas práticas</span>
-                  </li>
+                  {t.experience.dev.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-[#5B9FE3] mt-1.5">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
 
                 <p className="text-gray-400 text-sm mb-2">
-                  Atuação em projetos próprios:
+                  {t.experience.dev.projectsLabel}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-[#5B9FE3]/10 border border-[#5B9FE3]/30 rounded-lg text-[#5B9FE3] text-sm">
@@ -663,17 +710,19 @@ export default function AboutPage() {
 
               <div className="pb-8">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
-                  <h3 className="text-2xl font-semibold text-white">Founder & Author</h3>
+                  <h3 className="text-2xl font-semibold text-white">
+                    {t.experience.founder.title}
+                  </h3>
                   <span className="text-sm text-gray-400 md:text-right mt-1 md:mt-0">
-                    jul 2024 — presente
+                    {t.experience.founder.period}
                   </span>
                 </div>
-                <p className="text-[#5B9FE3] font-medium mb-4">Descentralizando</p>
+                <p className="text-[#5B9FE3] font-medium mb-4">
+                  {t.experience.founder.company}
+                </p>
 
                 <p className="text-gray-300 leading-relaxed">
-                  Blog sobre finanças, investimentos, Web3, blockchain e DeFi. Produção de
-                  conteúdo educativo, artigos técnicos e análises macroeconômicas com foco
-                  em liberdade individual, descentralização e educação financeira.
+                  {t.experience.founder.description}
                 </p>
               </div>
             </div>
@@ -685,47 +734,27 @@ export default function AboutPage() {
               <div className="pb-8">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
                   <h3 className="text-2xl font-semibold text-white">
-                    Investment Adviser
+                    {t.experience.adviser.title}
                   </h3>
                   <span className="text-sm text-gray-400 md:text-right mt-1 md:mt-0">
-                    ago 2022 — mar 2025
+                    {t.experience.adviser.period}
                   </span>
                 </div>
-                <p className="text-gray-400 font-medium mb-4">Bradesco</p>
+                <p className="text-gray-400 font-medium mb-4">
+                  {t.experience.adviser.company}
+                </p>
 
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  Responsável por carteira de clientes alta renda, atuando em:
+                  {t.experience.adviser.description}
                 </p>
 
                 <ul className="space-y-2 text-gray-300">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-500 mt-1.5">•</span>
-                    <span>Análise de perfil e estruturação de portfólios</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-500 mt-1.5">•</span>
-                    <span>
-                      Avaliação de fundos, previdência, mercado internacional e renda
-                      variável
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-500 mt-1.5">•</span>
-                    <span>
-                      Condução de estratégias alinhadas a suitability e objetivos de longo
-                      prazo
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-500 mt-1.5">•</span>
-                    <span>Atendimento consultivo de alto padrão</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-500 mt-1.5">•</span>
-                    <span>
-                      Acompanhamento macroeconômico e recomendações personalizadas
-                    </span>
-                  </li>
+                  {t.experience.adviser.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-gray-500 mt-1.5">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -737,44 +766,31 @@ export default function AboutPage() {
               <div className="pb-8">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
                   <h3 className="text-2xl font-semibold text-white">
-                    Administrative & Customer Operations
+                    {t.experience.admin.title}
                   </h3>
                   <span className="text-sm text-gray-400 md:text-right mt-1 md:mt-0">
-                    jul 2016 — ago 2022
+                    {t.experience.admin.period}
                   </span>
                 </div>
-                <p className="text-gray-400 font-medium mb-4">Cooperforte</p>
+                <p className="text-gray-400 font-medium mb-4">
+                  {t.experience.admin.company}
+                </p>
 
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  Início como estagiário e crescimento interno passando por:
+                  {t.experience.admin.description}
                 </p>
 
                 <ul className="space-y-2 text-gray-300 mb-4">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-500 mt-1.5">•</span>
-                    <span>Setor administrativo</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-500 mt-1.5">•</span>
-                    <span>Documentação e compliance operacional</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-500 mt-1.5">•</span>
-                    <span>Patrimônio e controle interno</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-500 mt-1.5">•</span>
-                    <span>Atendimento a cooperados</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-500 mt-1.5">•</span>
-                    <span>Suporte a produtos financeiros</span>
-                  </li>
+                  {t.experience.admin.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-gray-500 mt-1.5">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
 
                 <p className="text-gray-400 italic text-sm">
-                  Experiência que consolidou visão sistêmica, disciplina operacional e
-                  maturidade na relação com clientes e processos.
+                  {t.experience.admin.footer}
                 </p>
               </div>
             </div>
@@ -784,7 +800,7 @@ export default function AboutPage() {
         {/* ========== ACADEMIC BACKGROUND SECTION ========== */}
         <section id="education" className="mt-24">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">Background Acadêmico</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">{t.educationTitle}</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#5B9FE3] to-transparent mx-auto"></div>
           </div>
 
@@ -794,7 +810,7 @@ export default function AboutPage() {
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-1">
-                    MBA — Finanças, Investimentos e Banking
+                    {t.education.mba}
                   </h3>
                   <p className="text-[#5B9FE3]">PUCRS</p>
                 </div>
@@ -809,7 +825,7 @@ export default function AboutPage() {
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-1">
-                    Bacharelado em Administração
+                    {t.education.bachelor}
                   </h3>
                   <p className="text-[#5B9FE3]">Grupo Projeção</p>
                 </div>
@@ -821,20 +837,17 @@ export default function AboutPage() {
 
             {/* Certifications */}
             <div className="bg-gradient-to-br from-[#5B9FE3]/10 via-[#5B9FE3]/5 to-transparent border border-[#5B9FE3]/30 rounded-xl p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">Certificações</h3>
+              <h3 className="text-lg font-semibold text-white mb-4">
+                {t.education.certifications}
+              </h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-[#5B9FE3]"></div>
-                  <p className="text-gray-300">
-                    <span className="font-medium text-white">CEA</span> — ANBIMA
-                    (Especialista em Investimentos)
-                  </p>
+                  <p className="text-gray-300">{t.education.cea}</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-[#5B9FE3]"></div>
-                  <p className="text-gray-300">
-                    <span className="font-medium text-white">CPA-20</span> — ANBIMA
-                  </p>
+                  <p className="text-gray-300">{t.education.cpa}</p>
                 </div>
               </div>
             </div>
@@ -843,14 +856,14 @@ export default function AboutPage() {
 
         {/* ========== CTA SECTION ========== */}
         <section id="contact" className="text-center pt-10">
-          <p className="text-gray-400">Quer construir algo significativo juntos?</p>
+          <p className="text-gray-400">{t.contactCta}</p>
 
           <a
             href="https://github.com/lipeamarok"
             target="_blank"
             className="mt-4 inline-block px-6 py-3 rounded-xl bg-white/10 border border-white/10 hover:bg-white/20 hover:border-white/20 transition text-gray-200"
           >
-            Visite meu GitHub →
+            {t.contactButton}
           </a>
 
           {/* Ícones de contato */}
