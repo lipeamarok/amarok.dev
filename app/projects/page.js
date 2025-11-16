@@ -1,14 +1,23 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function ProjectsPage() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   const projects = [
     {
       slug: "ghost-wallet-hunter",
       titleImage: "/projects/ghost-wallet-hunter/logo-ghost-hunter_3.png",
       titleImageWidth: 250,
       titleImageHeight: 55,
-      imagePlaceholder: "Ghost Wallet Hunter — Demo / Preview",
+      videoDemo: "/projects/ghost-wallet-hunter/demo-GHW.mp4",
       description:
         "Forensic intelligence system for Solana wallets powered by seven specialized detective agents. Built in Julia for real-time detection of exploits, fraud patterns and coordinated network behavior.",
       stack: "Julia · Oxygen.jl · Solana RPC · React · Vite · Tailwind · Three.js",
@@ -18,7 +27,7 @@ export default function ProjectsPage() {
       titleImage: "/projects/aisyad/logo-3.png",
       titleImageWidth: 450,
       titleImageHeight: 75,
-      imagePlaceholder: "Aisyad — Demo / Preview",
+      videoDemo: "/projects/aisyad/demo-AISYAD.mp4",
       description:
         "SaaS platform for automating Meta Ads campaigns. Create, optimize and manage ads with AI-driven diagnostics, real-time insights and full OAuth2 integration with Facebook Ads.",
       stack:
@@ -29,7 +38,7 @@ export default function ProjectsPage() {
       titleImage: "/projects/bugxhunter/logo_bug.png",
       titleImageWidth: 220,
       titleImageHeight: 30,
-      imagePlaceholder: "BugHunter — Demo / Preview",
+      videoDemo: "/projects/bugxhunter/demo-BugXHunter.mp4",
       description:
         "Autonomous bug hunting system with simulated environments, intelligent orchestration and continuous learning. Powered by Julia for high-performance analysis and Rust/Tauri for secure system operations.",
       stack: "Julia · Rust · Tauri · React · Docker · AI/ML · SQLite/Postgres",
@@ -50,20 +59,36 @@ export default function ProjectsPage() {
             <Link
               key={i}
               href={`/projects/${project.slug}`}
-              className="block rounded-2xl p-8 bg-white/5 backdrop-blur-xl border border-white/10
+              className={`block rounded-2xl p-8 bg-white/5 backdrop-blur-xl border border-white/10
                          shadow-xl transition-all duration-300 cursor-pointer group
                          flex flex-col h-[520px] overflow-hidden
                          hover:scale-[1.03]
                          hover:shadow-[0_20px_60px_-15px_rgba(91,159,227,0.4)]
                          hover:border-[#5B9FE3]/40
-                         hover:bg-white/8"
+                         hover:bg-white/8
+                         ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              style={{
+                transitionDelay: `${i * 150}ms`,
+                transitionDuration: "600ms",
+                transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+              }}
             >
-              {/* Placeholder DEMO */}
-              <div
-                className="h-40 flex-shrink-0 rounded-xl bg-gradient-to-br from-[#8e6bff30] to-[#b79aff20] border border-white/10 flex items-center justify-center text-gray-400 transition-all duration-300 text-center px-4
-                              group-hover:from-[#5B9FE3]/20 group-hover:to-[#5B9FE3]/10 group-hover:border-[#5B9FE3]/30 group-hover:text-gray-300"
-              >
-                <span className="text-sm">{project.imagePlaceholder}</span>
+              {/* Video Demo ou Placeholder */}
+              <div className="h-40 flex-shrink-0 rounded-xl overflow-hidden border border-white/10 transition-all duration-300 group-hover:border-[#5B9FE3]/30">
+                {project.videoDemo ? (
+                  <video
+                    src={project.videoDemo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-[#8e6bff30] to-[#b79aff20] flex items-center justify-center text-gray-400 transition-all duration-300 text-center px-4 group-hover:from-[#5B9FE3]/20 group-hover:to-[#5B9FE3]/10 group-hover:text-gray-300">
+                    <span className="text-sm">Demo em breve</span>
+                  </div>
+                )}
               </div>
 
               {/* Título + Logo */}

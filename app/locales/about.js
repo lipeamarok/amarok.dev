@@ -6,7 +6,7 @@ export const translations = {
     heroTags: {
       ai: "AI Engineering",
       web3: "Web3 & Blockchain",
-      hpc: "Full Stack Developer",
+      hpc: "Full-Stack Developer",
     },
     jumpToSection: "Ir para Seção",
     navigation: {
@@ -31,7 +31,7 @@ export const translations = {
       p4End:
         "Pela primeira vez, vi tecnologia, investimento e liberdade individual coexistirem. Mergulhei profundamente em blockchain, Web3 e DeFi. Dali nasceu uma paixão real.",
       p5: "Comecei então a criar conteúdo educativo sobre cripto, investimentos e finanças o que me levou a desbloquear habilidades de edição de vídeo, elaboração de roteiros, criação de designs… e, naturalmente, a aprender sobre",
-      p5Highlight: " tráfego pago ",
+      p5Highlight: " tráfego pago",
       p5End: ". E foi aí que algo ficou muito claro:",
       quote1: "O pequeno empreendedor não vai conseguir. Meta Ads é complexo demais!",
       p6: "A pessoa que tem um consultório, um restaurante, um pequeno e-commerce… não tem tempo, paciência ou conhecimento para lidar com a complexidade da plataforma. E contratar uma agência nem sempre é viável. Foi então que pensei:",
@@ -43,7 +43,7 @@ export const translations = {
       p7Highlight: "AISYad",
       p7Mid:
         ", meu primeiro grande projeto. Um software SaaS de automação inteligente para Meta Ads. Mas havia um problema:",
-      p7End: "eu não sabia programar.",
+      p7End: " eu não sabia programar.",
       p8: "E eu não queria uma solução superficial feita por IA no estilo Lovable, nem terceirizar o desenvolvimento. Se eu realmente queria criar algo transformador, eu precisava aprender de verdade. E mesmo tendo estudado programação (Cobol) e testes de software no passado, eu não lembrava mais de nada... teria que começar ",
       p8Highlight: "do zero.",
       p9: "Aprendi tudo na unha: APIs, banco de dados, autenticação, arquitetura, infraestrutura. Meses de estudo, erros e construção me levaram a um ponto de virada:",
@@ -195,7 +195,7 @@ export const translations = {
     heroTags: {
       ai: "AI Engineering",
       web3: "Web3 & Blockchain",
-      hpc: "Full Stack Developer",
+      hpc: "Full-Stack Developer",
     },
     jumpToSection: "Jump to Section",
     navigation: {
@@ -220,7 +220,7 @@ export const translations = {
       p4End:
         "For the first time, I saw technology, investment, and individual freedom coexist. I dove deep into blockchain, Web3, and DeFi. A real passion was born.",
       p5: "I then started creating educational content about crypto, investing, and finance, which led me to unlock skills in video editing, scriptwriting, design... and naturally, learning about",
-      p5Highlight: " paid ads ",
+      p5Highlight: " paid ads",
       p5End: ". And that's when something became crystal clear:",
       quote1: "Small business owners won't make it. Meta Ads is way too complex!",
       p6: "Someone running a clinic, a restaurant, a small e-commerce store... they don't have the time, patience, or knowledge to deal with the platform's complexity. And hiring an agency isn't always feasible. That's when I thought:",
@@ -232,7 +232,7 @@ export const translations = {
       p7Highlight: "AISYad",
       p7Mid:
         ", my first major project. An intelligent automation SaaS for Meta Ads. But there was a problem:",
-      p7End: "I didn't know how to code.",
+      p7End: " I didn't know how to code.",
       p8: "And I didn't want some shallow AI-generated solution like Lovable, nor did I want to outsource the development. If I truly wanted to build something transformative, I needed to learn for real. And even though I had studied programming (Cobol) and software testing in the past, I didn't remember any of it... I'd have to start ",
       p8Highlight: "from scratch.",
       p9: "I learned everything the hard way: APIs, databases, authentication, architecture, infrastructure. Months of study, failures, and building led me to a turning point:",
