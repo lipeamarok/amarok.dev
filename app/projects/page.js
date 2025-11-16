@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProjectsPage() {
   const projects = [
     {
+      slug: "ghost-wallet-hunter",
       titleImage: "/projects/ghost-wallet-hunter/logo-ghost-hunter_3.png",
       titleImageWidth: 250,
       titleImageHeight: 55,
@@ -12,6 +14,7 @@ export default function ProjectsPage() {
       stack: "Julia · Oxygen.jl · Solana RPC · React · Vite · Tailwind · Three.js",
     },
     {
+      slug: "aisyad",
       titleImage: "/projects/aisyad/logo-3.png",
       titleImageWidth: 450,
       titleImageHeight: 75,
@@ -22,6 +25,7 @@ export default function ProjectsPage() {
         "FastAPI · Python · PostgreSQL · JWT · OAuth2 · Next.js · TypeScript · Zustand · Tailwind",
     },
     {
+      slug: "bugxhunter",
       titleImage: "/projects/bugxhunter/logo_bug.png",
       titleImageWidth: 220,
       titleImageHeight: 30,
@@ -43,12 +47,22 @@ export default function ProjectsPage() {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {projects.map((project, i) => (
-            <div
+            <Link
               key={i}
-              className="rounded-2xl p-8 bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl hover:shadow-2xl hover:border-purple-300/20 transition-all duration-300 cursor-pointer group flex flex-col h-[520px] overflow-hidden"
+              href={`/projects/${project.slug}`}
+              className="block rounded-2xl p-8 bg-white/5 backdrop-blur-xl border border-white/10
+                         shadow-xl transition-all duration-300 cursor-pointer group
+                         flex flex-col h-[520px] overflow-hidden
+                         hover:scale-[1.03]
+                         hover:shadow-[0_20px_60px_-15px_rgba(91,159,227,0.4)]
+                         hover:border-[#5B9FE3]/40
+                         hover:bg-white/8"
             >
               {/* Placeholder DEMO */}
-              <div className="h-40 flex-shrink-0 rounded-xl bg-gradient-to-br from-[#8e6bff30] to-[#b79aff20] border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-gray-300 transition text-center px-4">
+              <div
+                className="h-40 flex-shrink-0 rounded-xl bg-gradient-to-br from-[#8e6bff30] to-[#b79aff20] border border-white/10 flex items-center justify-center text-gray-400 transition-all duration-300 text-center px-4
+                              group-hover:from-[#5B9FE3]/20 group-hover:to-[#5B9FE3]/10 group-hover:border-[#5B9FE3]/30 group-hover:text-gray-300"
+              >
                 <span className="text-sm">{project.imagePlaceholder}</span>
               </div>
 
@@ -103,7 +117,7 @@ export default function ProjectsPage() {
               <p className="mt-6 text-xs text-gray-500 text-center tracking-wide flex-shrink-0">
                 Stack: <span className="text-gray-300">{project.stack}</span>
               </p>
-            </div>
+            </Link>
           ))}
         </div>
 

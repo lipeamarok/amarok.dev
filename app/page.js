@@ -53,7 +53,7 @@ export default function Home() {
         <motion.p
           initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
+          transition={{ delay: 2.1, duration: 0.7 }}
           className="mt-2 text-xl md:text-2xl text-gray-200 font-medium"
         >
           Building freedom with code
