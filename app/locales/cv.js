@@ -3,7 +3,7 @@ export const cvData = {
     // Informações de Contato
     contact: {
       name: "Filipe Amorim Arouck de Souza",
-      title: "Full-Stack Developer | AI & Web3 Specialist",
+      title: "Full-Stack Developer | Quality Tester | AI & Web3 Specialist",
       email: "lipearouck@gmail.com",
       linkedin: "linkedin.com/in/filipe-arouck",
       github: "github.com/lipeamarok",
@@ -131,7 +131,7 @@ export const cvData = {
     // Mesma estrutura, traduzida
     contact: {
       name: "Filipe Amorim Arouck de Souza",
-      title: "Full-Stack Developer | AI & Web3 Specialist",
+      title: "Full-Stack Developer | Quality Tester | AI & Web3 Specialist",
       email: "lipearouck@gmail.com",
       linkedin: "linkedin.com/in/filipe-arouck",
       github: "github.com/lipeamarok",
