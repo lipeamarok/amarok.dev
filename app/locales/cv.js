@@ -23,6 +23,13 @@ export const cvData = {
         "LLM Integrations",
         "Machine Learning",
       ],
+      databases: [
+        "PostgreSQL",
+        "Alembic (migrations)",
+        "Neon (serverless)",
+        "SQLite",
+        "ORMs (SQLAlchemy)",
+      ],
       test: ["Robot", "Pytest", "API testing", "Postman/Insomnia", "Swagger"],
       web3: [
         "Solana RPC",
@@ -30,7 +37,7 @@ export const cvData = {
         "Wallet Forensics",
         "Bug Bounty Automation",
       ],
-      backend: ["FastAPI", "Node.js", "PostgreSQL", "Docker", "CI/CD"],
+      backend: ["FastAPI", "Node.js", "Docker", "CI/CD", "REST APIs"],
       frontend: ["Next.js", "React", "TailwindCSS", "Vite"],
     },
 
@@ -149,6 +156,13 @@ export const cvData = {
         "LLM Integrations",
         "Machine Learning",
       ],
+      databases: [
+        "PostgreSQL",
+        "Alembic (migrations)",
+        "Neon (serverless)",
+        "SQLite",
+        "ORMs (SQLAlchemy)",
+      ],
       test: ["Robot", "Pytest", "API testing", "Postman/Insomnia", "Swagger"],
       web3: [
         "Solana RPC",
@@ -156,7 +170,7 @@ export const cvData = {
         "Wallet Forensics",
         "Bug Bounty Automation",
       ],
-      backend: ["FastAPI", "Node.js", "PostgreSQL", "Docker", "CI/CD"],
+      backend: ["FastAPI", "Node.js", "Docker", "CI/CD", "REST APIs"],
       frontend: ["Next.js", "React", "TailwindCSS", "Vite"],
     },
 
