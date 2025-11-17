@@ -7,7 +7,7 @@ export const cvData = {
       email: "lipearouck@gmail.com",
       linkedin: "linkedin.com/in/filipe-arouck",
       github: "github.com/lipeamarok",
-      location: "Brasil",
+      website: "lipeamarok.dev",
     },
 
     // Resumo Profissional (substituindo a Story)
@@ -23,6 +23,7 @@ export const cvData = {
         "LLM Integrations",
         "Machine Learning",
       ],
+      test: ["Robot", "Pytest", "API testing", "Postman/Insomnia", "Swagger"],
       web3: [
         "Solana RPC",
         "Smart Contracts",
@@ -134,7 +135,7 @@ export const cvData = {
       email: "lipearouck@gmail.com",
       linkedin: "linkedin.com/in/filipe-arouck",
       github: "github.com/lipeamarok",
-      location: "Brazil",
+      website: "lipeamarok.dev",
     },
 
     summary:
@@ -148,6 +149,7 @@ export const cvData = {
         "LLM Integrations",
         "Machine Learning",
       ],
+      test: ["Robot", "Pytest", "API testing", "Postman/Insomnia", "Swagger"],
       web3: [
         "Solana RPC",
         "Smart Contracts",

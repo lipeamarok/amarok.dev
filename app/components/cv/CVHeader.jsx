@@ -60,10 +60,6 @@ const CVHeader = ({ data }) => {
         <Link src={`https://${data.github}`} style={styles.link}>
           {data.github}
         </Link>
-
-        <Text style={styles.separator}>•</Text>
-
-        <Text style={styles.contactItem}>{data.location}</Text>
       </View>
     </View>
   );
