@@ -1940,7 +1940,7 @@ const PROJECT_DATA = {
         content: [
           "A integridade dos dados é crítica. Utilizo **PostgreSQL** com versionamento de schema via {alembic}, permitindo migrações seguras e rastreáveis em produção.",
           "Para garantir a estabilidade, implementei uma suíte de testes automatizados com {pytest}, cobrindo desde unidades isoladas até fluxos complexos de integração OAuth.",
-          "A produtividade do time é acelerada por scripts de automação via **Makefile**, que padronizam comandos de setup, testes e deploy."
+          "A produtividade é acelerada por scripts de automação via **Makefile**, que padronizam comandos de setup, testes e deploy."
         ]
       },
       {
@@ -1977,7 +1977,7 @@ const PROJECT_DATA = {
         content: [
           "Data integrity is critical. I use **PostgreSQL** with schema versioning via {alembic}, allowing safe and traceable migrations in production.",
           "To ensure stability, I implemented an automated test suite with {pytest}, covering everything from isolated units to complex OAuth integration flows.",
-          "Team productivity is accelerated by automation scripts via **Makefile**, which standardize setup, testing, and deploy commands."
+          "Productivity is accelerated by automation scripts via **Makefile**, which standardize setup, testing, and deploy commands."
         ]
       },
       {
