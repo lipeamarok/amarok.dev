@@ -1,52 +1,97 @@
+import { desc } from "framer-motion/client";
+
 export const cvData = {
   pt: {
     // Informações de Contato
     contact: {
       name: "Filipe Amorim Arouck de Souza",
-      title: "Full-Stack Developer | Quality Tester | AI & Web3 Specialist",
+      title: "Software Engineer | Python, Rust & AI Specialist",
       email: "lipearouck@gmail.com",
       linkedin: "linkedin.com/in/filipe-arouck",
       github: "github.com/lipeamarok",
-      website: "lipeamarok.dev",
+      portfolio: "lipeamarok.dev",
     },
 
     // Resumo Profissional (substituindo a Story)
     summary:
-      "Desenvolvedor Full-Stack com 10 anos de experiência no mercado financeiro e especialização em AI Engineering e Web3. Histórico comprovado em construção de sistemas inteligentes de alta performance, automação com IA e aplicações blockchain. Premiado em hackathon de desenvolvimento Web3 (4º lugar - Superteam Solana).",
+      "Engenheiro de Software com +5 anos de experiência prática em desenvolvimento," +
+      " Full-Stack, Automação e IA. Histórico único combinando 10 anos de setor financeiro," +
+      " com engenharia de software aplicada. Especialista em Python, Rust e Julia, com foco" +
+      " em sistemas de alta performance, arquitetura de microsserviços e soluções Web3." +
+      " Liderou iniciativas de Shadow IT em grandes instituições bancárias," +
+      " automatizando processos críticos com scripts de dados. Vencedor de Hackathon Global " +
+      "(Superteam Solana) e criador de arquiteturas SaaS escaláveis.",
 
     // Skills (agrupadas para CV)
     skills: {
-      programming: ["Julia", "Python", "Rust", "TypeScript", "JavaScript"],
-      ai: [
-        "OpenAI/Grok API",
-        "Multi-Agent Systems",
-        "LLM Integrations",
-        "Machine Learning",
+      languages: [
+        "Python",
+        "Rust",
+        "Julia",
+        "TypeScript",
+        "JavaScript",
+        "SQL",
+        "COBOL (Legacy)"
       ],
-      databases: [
-        "PostgreSQL",
+      backend: [
+        "FastAPI",
+        "Node.js",
+        "Microservices",
+        "Async Programming",
+        "REST APIs"
+      ],
+      frontend: [
+        "Next.js",
+        "React",
+        "TailwindCSS",
+        "Vite"
+      ],
+      data_engineering: [
+        "Pandas/NumPy",
+        "SQLAlchemy",
         "Alembic (migrations)",
-        "Neon (serverless)",
-        "SQLite",
-        "ORMs (SQLAlchemy)",
+        "Redis",
+        "Web Scraping"
       ],
-      test: ["Robot", "Pytest", "API testing", "Postman/Insomnia", "Swagger"],
-      web3: [
+      ai_agents: [
+        "OpenAI/Grok API",
+        "Multi-Agent Orchestration",
+        "RAG (Retrieval-Augmented Generation)",
+        "LLM Integration",
+        "Vector Embeddings",
+        "Machine Learning"
+      ],
+      web3_security: [
         "Solana RPC",
         "Smart Contracts",
         "Wallet Forensics",
-        "Bug Bounty Automation",
+        "Slither",
+        "Blockchain Data Analysis"
       ],
-      backend: ["FastAPI", "Node.js", "Docker", "CI/CD", "REST APIs"],
-      frontend: ["Next.js", "React", "TailwindCSS", "Vite"],
+      devops_infrastructure: [
+        "Docker",
+        "CI/CD",
+        "AWS",
+        "Linux/Bash",
+        "Git"
+      ],
+      quality_testing: [
+        "Pytest",
+        "Robot Framework",
+        "API Testing",
+        "Postman/Insomnia",
+        "Swagger/OpenAPI"
+      ]
     },
 
     // Projetos (resumidos)
     projects: [
       {
         name: "Ghost Wallet Hunter",
+        award: "(4º Lugar - Superteam Solana Hackathon)",
+        awardLink: "https://earn.superteam.fun/listing/ai-dapp-development",
         description:
-          "Motor forense de IA para investigação de wallets Solana com 7 agentes especializados. 4º lugar no AI DApp Development Hackathon.",
+          "Sistema de inteligência forense para rastreio de wallets na Solana. Utiliza arquitetura multi-agente para detectar padrões de lavagem de dinheiro e fraudes que exploradores de blocos comuns não identificam.",
         tech: "Julia, Solana RPC, React, AI Agents",
       },
       {
@@ -66,41 +111,51 @@ export const cvData = {
     // Experiência (do about.js,  mas formatada para CV)
     experience: [
       {
-        title: "Full-Stack Developer",
+        title: "Software Engineer & AI Researcher",
         company: "Self-Employed",
-        period: "Mar 2025 - Presente",
+        period: "Jan 2021 - presente",
+        description: "Desenvolvimento e arquitetura end-to-end de soluções SaaS e ferramentas de segurança:",
         achievements: [
-          "Desenvolvimento de aplicações SaaS com IA aplicada",
-          "Sistemas de alta performance em Julia, Rust e Python",
-          "Automações inteligentes e pipelines multi-agent",
-          "Arquitetura modular e clean code",
+          " Engenharia de Produto: Arquiteto principal do AISYAD, plataforma SaaS de automação de marketing com microsserviços " +
+          "em FastAPI e Next.js, integrando OAuth2 e filas assíncronas;",
+          " Web3 Innovation: Arquiteto do Ghost Wallet Hunter, motor forense premiado que orquestra 7 agentes autônomos em Julia/Rust, atingindo detecção de fraudes em real-time na Mainnet da Solana;",
+          " Performance: Implementou sistemas de Bug Hunting automatizado com contêineres Docker " +
+          "e loops de aprendizado contínuo;",
+          " Consultoria: Desenvolvimento de scripts de automação e ETL para clientes do setor financeiro.",
         ],
       },
       {
-        title: "Founder & Author",
+        title: "Fundador & Analista Cripto",
         company: "Descentralizando",
         period: "Jul 2024 - Presente",
+        description: "Blog sobre finanças, investimentos, Web3, blockchain e DeFi:",
         achievements: [
-          "Criação de conteúdo educativo sobre Web3, blockchain e DeFi",
-          "Artigos técnicos e análises macroeconômicas",
+          " Artigos técnicos e análises macroeconômicas;",
+          " Desenvolvimento de estratégias baseadas em dados on-chain e análise técnica de Smart Contracts e DeFi."
         ],
       },
       {
-        title: "Especialista de Investimentos",
+        title: "Especialista de Investimentos & Data Automation",
         company: "Bradesco",
         period: "Ago 2022 - Mar 2025",
+        description: "Gestão de carteira Alta Renda com viés quantitativo e analítico",
         achievements: [
-          "Gestão de carteira de clientes alta renda",
-          "Estruturação de portfólios e análise de perfil",
-          "Avaliação de fundos, previdência e renda variável",
+          " Automação de Dados: Desenvolvimento de scripts em Python (Pandas) para processamento em lote de carteiras de investimento, reduzindo o tempo de análise manual;",
+          " Acompanhamento macroeconômico: Avaliação de fundos, previdência, mercado internacional e renda variável;",
+          " Dashboards e BI: Criação de ferramentas internas para visualização de alocação de ativos e monitoramento de KPIs;",
+          " Condução de estratégias alinhadas a suitability e objetivos de longo prazo.",
         ],
       },
       {
-        title: "Operações Administrativas",
+        title: "Analista de Operações e Processos",
         company: "Cooperforte",
         period: "Jul 2016 - Ago 2022",
+        description: "Início como estagiário com crescimento interno. Experiência que consolidou visão sistêmica, disciplina operacional e maturidade na relação com clientes e processos:",
         achievements: [
-          "Crescimento de estagiário a posições administrativas e de relacionamento com clientes",
+          " Validação de Regras de Negócio: Responsável pela integridade operacional e testes lógicos de fluxos de aprovação de crédito;",
+          " Migração e Saneamento: Atuação na estruturação de dados para relatórios gerenciais e auditoria utilizando SQL e lógica avançada;",
+          " Otimização de rotinas administrativas através da padronização de processos e suporte técnico a produtos financeiros.",
+
         ],
       },
     ],
@@ -119,6 +174,24 @@ export const cvData = {
       },
     ],
 
+    technicalEducation: [
+      {
+        degree: "Engenharia de Software",
+        institution: "Foco intensivo em arquitetura distribuída",
+        period: "2021 – Presente",
+      },
+      {
+        degree: "Teste de Software e QA",
+        institution: "Metodologias de validação e qualidade",
+        period: "2013",
+      },
+      {
+        degree: "Lógica de Programação e COBOL",
+        institution: "Fundamentos de Engenharia de Software",
+        period: "2012",
+      },
+    ],
+
     // Certificações
     certifications: ["CEA — ANBIMA (Especialista em Investimentos)", "CPA-20 — ANBIMA"],
 
@@ -130,6 +203,7 @@ export const cvData = {
       projects: "Projetos em Destaque",
       experience: "Experiência Profissional",
       education: "Formação Acadêmica",
+      technicalEducation: "Desenvolvimento & Cursos",
       certifications: "Certificações",
     },
   },
@@ -138,47 +212,90 @@ export const cvData = {
     // Mesma estrutura, traduzida
     contact: {
       name: "Filipe Amorim Arouck de Souza",
-      title: "Full-Stack Developer | Quality Tester | AI & Web3 Specialist",
+      title: "Software Engineer | Python, Rust & AI Specialist",
       email: "lipearouck@gmail.com",
       linkedin: "linkedin.com/in/filipe-arouck",
       github: "github.com/lipeamarok",
-      website: "lipeamarok.dev",
+      portfolio: "lipeamarok.dev",
     },
 
     summary:
-      "Full-Stack Developer with 10 years of experience in financial markets and specialization in AI Engineering and Web3. Proven track record building high-performance intelligent systems, AI automation, and blockchain applications. Award winner at Web3 development hackathon (4th place - Superteam Solana).",
+      "Software Engineer with 5+ years of practical experience in Full-Stack development," +
+      " Automation, and AI. Unique background combining 10 years in the financial sector" +
+      " with applied software engineering. Specialist in Python, Rust, and Julia, focusing" +
+      " on high-performance systems, microservices architecture, and Web3 solutions." +
+      " Led Shadow IT initiatives at major banking institutions," +
+      " automating critical processes with data scripts. Global Hackathon Winner" +
+      " (Superteam Solana) and creator of scalable SaaS architectures.",
 
     skills: {
-      programming: ["Julia", "Python", "Rust", "TypeScript", "JavaScript"],
-      ai: [
-        "OpenAI/Grok API",
-        "Multi-Agent Systems",
-        "LLM Integrations",
-        "Machine Learning",
+      languages: [
+        "Python",
+        "Rust",
+        "Julia",
+        "TypeScript",
+        "JavaScript",
+        "SQL",
+        "COBOL (Legacy)"
       ],
-      databases: [
-        "PostgreSQL",
+      backend: [
+        "FastAPI",
+        "Node.js",
+        "Microservices",
+        "Async Programming",
+        "REST APIs"
+      ],
+      frontend: [
+        "Next.js",
+        "React",
+        "TailwindCSS",
+        "Vite"
+      ],
+      data_engineering: [
+        "Pandas/NumPy",
+        "SQLAlchemy",
         "Alembic (migrations)",
-        "Neon (serverless)",
-        "SQLite",
-        "ORMs (SQLAlchemy)",
+        "Redis",
+        "Web Scraping"
       ],
-      test: ["Robot", "Pytest", "API testing", "Postman/Insomnia", "Swagger"],
-      web3: [
+      ai_agents: [
+        "OpenAI/Grok API",
+        "Multi-Agent Orchestration",
+        "RAG (Retrieval-Augmented Generation)",
+        "LLM Integration",
+        "Vector Embeddings",
+        "Machine Learning"
+      ],
+      web3_security: [
         "Solana RPC",
         "Smart Contracts",
         "Wallet Forensics",
-        "Bug Bounty Automation",
+        "Slither",
+        "Blockchain Data Analysis"
       ],
-      backend: ["FastAPI", "Node.js", "Docker", "CI/CD", "REST APIs"],
-      frontend: ["Next.js", "React", "TailwindCSS", "Vite"],
+      devops_infrastructure: [
+        "Docker",
+        "CI/CD",
+        "AWS",
+        "Linux/Bash",
+        "Git"
+      ],
+      quality_testing: [
+        "Pytest",
+        "Robot Framework",
+        "API Testing",
+        "Postman/Insomnia",
+        "Swagger/OpenAPI"
+      ]
     },
 
     projects: [
       {
         name: "Ghost Wallet Hunter",
+        award: "(4th Place - Superteam Solana Hackathon)",
+        awardLink: "https://earn.superteam.fun/listing/ai-dapp-development",
         description:
-          "AI forensic engine for Solana wallet investigation with 7 specialized agents. 4th place in AI DApp Development Hackathon.",
+          "Forensic intelligence system for Solana wallet tracking. Utilizes multi-agent architecture to detect money laundering patterns and frauds that common block explorers do not identify.",
         tech: "Julia, Solana RPC, React, AI Agents",
       },
       {
@@ -197,41 +314,48 @@ export const cvData = {
 
     experience: [
       {
-        title: "Full-Stack Developer",
+        title: "Software Engineer & AI Researcher",
         company: "Self-Employed",
-        period: "Mar 2025 - Present",
+        period: "Jan 2021 - Present",
+        description: "End-to-end architecture and development of SaaS solutions and Web3 security tools:",
         achievements: [
-          "Developing SaaS applications with applied AI",
-          "High-performance systems in Julia, Rust, and Python",
-          "Intelligent automations and multi-agent pipelines",
-          "Modular architecture and clean code",
+          " Product Engineering: Lead Architect of AISYAD, a marketing automation SaaS platform with microservices architecture in FastAPI and Next.js, integrating OAuth2 and asynchronous queues;",
+          " Web3 Innovation: Architect of Ghost Wallet Hunter, an award-winning forensic engine orchestrating 7 autonomous agents in Julia/Rust, achieving real-time fraud detection on the Solana Mainnet;",
+          " Performance Engineering: Implementation of automated Bug Hunting systems using Docker containers and continuous learning loops;",
+          " Consulting: Development of automation scripts and ETL for financial sector clients.",
         ],
       },
       {
-        title: "Founder & Author",
+        title: "Founder & Crypto Analyst",
         company: "Descentralizando",
         period: "Jul 2024 - Present",
+        description: "Blog about finance, investments, Web3, blockchain, and DeFi:",
         achievements: [
-          "Creating educational content on Web3, blockchain, and DeFi",
-          "Technical articles and macroeconomic analyses",
+          " Technical articles and macroeconomic analyses;",
+          " Development of strategies based on on-chain data and technical analysis of Smart Contracts and DeFi."
         ],
       },
       {
-        title: "Investment Adviser",
+        title: "Investment Specialist & Data Automation",
         company: "Bradesco",
         period: "Aug 2022 - Mar 2025",
+        description: "High-net-worth client portfolio management with quantitative and analytical bias:",
         achievements: [
-          "Managing high-net-worth client portfolios",
-          "Structuring portfolios and profile analysis",
-          "Evaluating funds, pensions, and variable income",
+          " Data Automation: Development of Python (Pandas) scripts for batch processing of investment portfolios, reducing manual analysis time;",
+          " Macroeconomic Monitoring: Evaluation of funds, pensions, international markets, and variable income;",
+          " Dashboards and BI: Creation of internal tools for asset allocation visualization and KPI monitoring;",
+          " Execution of strategies aligned with suitability and long-term objectives.",
         ],
       },
       {
-        title: "Administrative Operations",
+        title: "Operations and Process Analyst",
         company: "Cooperforte",
         period: "Jul 2016 - Aug 2022",
+        description: "Started as intern and grew internally. Experience that consolidated systemic vision, operational discipline, and maturity in client and process relationships:",
         achievements: [
-          "Growth from intern to administrative and client relationship roles",
+          " Business Rule Validation: Responsible for operational integrity and logical testing of credit approval flows;",
+          " Migration and Sanitation: Acting in data structuring for management reports and audit using SQL and advanced logic;",
+          " Optimization of administrative routines through process standardization and technical support for financial products.",
         ],
       },
     ],
@@ -248,6 +372,24 @@ export const cvData = {
       },
     ],
 
+    technicalEducation: [
+      {
+        degree: "Software Engineering",
+        institution: "Intensive focus on distributed architecture",
+        period: "2021 – Present",
+      },
+      {
+        degree: "Software Testing and QA",
+        institution: "Validation and quality methodologies",
+        period: "2013",
+      },
+      {
+        degree: "Programming Logic and COBOL",
+        institution: "Software Engineering Fundamentals",
+        period: "2012",
+      },
+    ],
+
     certifications: ["CEA — ANBIMA (Investment Specialist)", "CPA-20 — ANBIMA"],
 
     labels: {
@@ -257,6 +399,7 @@ export const cvData = {
       projects: "Featured Projects",
       experience: "Professional Experience",
       education: "Education",
+      technicalEducation: "Development & Technical Courses",
       certifications: "Certifications",
     },
   },

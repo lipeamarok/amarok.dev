@@ -5,51 +5,66 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   sectionTitle: {
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: "bold",
     color: "#81D4FA",
-    marginBottom: 8,
+    marginBottom: 6,
     marginTop: 0,
     textTransform: "uppercase",
     letterSpacing: 0.3,
   },
   subsectionTitle: {
-    fontSize: 9,
+    fontSize: 8.5,
     fontWeight: "bold",
     color: "#ffffff",
-    marginTop: 10,
-    marginBottom: 5,
+    marginTop: 8,
+    marginBottom: 4,
   },
   item: {
-    marginBottom: 7,
+    marginBottom: 5,
   },
   degree: {
-    fontSize: 9,
+    fontSize: 8.5,
     fontWeight: "bold",
     color: "#ffffff",
-    marginBottom: 1.5,
+    marginBottom: 1,
+  },
+  techDegree: {
+    fontSize: 8.5,
+    fontWeight: "normal",
+    color: "#ffffff",
+    marginBottom: 1,
   },
   period: {
-    fontSize: 8,
+    fontSize: 7.5,
     color: "#B0BEC5",
     fontStyle: "italic",
-    marginBottom: 1.5,
+    marginBottom: 1,
   },
   institution: {
-    fontSize: 8,
+    fontSize: 7.5,
     color: "#CFD8DC",
   },
   certificationItem: {
-    fontSize: 8,
+    fontSize: 7.5,
     color: "#CFD8DC",
-    marginBottom: 4,
+    marginBottom: 3,
+  },
+  separator: {
+    borderBottomWidth: 0.5,
+    borderBottomColor: "#ffffff",
+    opacity: 0.15,
+    marginTop: 2,
+    marginBottom: 8,
   },
 });
 
 const CVEducation = ({
   education,
+  technicalEducation,
   certifications,
   educationLabel,
+  technicalEducationLabel,
   certificationsLabel,
 }) => {
   return (
@@ -64,6 +79,21 @@ const CVEducation = ({
         </View>
       ))}
 
+      {technicalEducation && (
+        <>
+          <View style={styles.separator} />
+          <Text style={styles.subsectionTitle}>{technicalEducationLabel}</Text>
+          {technicalEducation.map((item, index) => (
+            <View key={index} style={styles.item}>
+              <Text style={styles.techDegree}>{item.degree}</Text>
+              <Text style={styles.institution}>{item.institution}</Text>
+              <Text style={styles.period}>{item.period}</Text>
+            </View>
+          ))}
+        </>
+      )}
+
+      <View style={styles.separator} />
       <Text style={styles.subsectionTitle}>{certificationsLabel}</Text>
 
       {certifications.map((cert, index) => (

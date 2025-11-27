@@ -9,7 +9,7 @@ import CVEducation from "./CVEducation";
 const styles = StyleSheet.create({
   page: {
     padding: 0,
-    fontSize: 9,
+    fontSize: 8.5,
     fontFamily: "Helvetica",
     backgroundColor: "#ffffff",
     flexDirection: "row",
@@ -17,38 +17,38 @@ const styles = StyleSheet.create({
   sidebar: {
     width: "28%",
     backgroundColor: "#37474F",
-    padding: 20,
-    paddingTop: 25,
+    padding: 12,
+    paddingTop: 15,
     color: "#ffffff",
   },
   mainContent: {
     width: "72%",
-    padding: 25,
-    paddingTop: 30,
+    padding: 15,
+    paddingTop: 20,
   },
   section: {
-    marginBottom: 11,
+    marginBottom: 8,
   },
   sectionTitle: {
-    fontSize: 11,
+    fontSize: 10,
     fontWeight: "bold",
     color: "#1a1a1a",
-    marginBottom: 7,
+    marginBottom: 4,
     borderBottom: "2 solid #5B9FE3",
-    paddingBottom: 3,
+    paddingBottom: 2,
   },
   sidebarSectionTitle: {
-    fontSize: 10.5,
+    fontSize: 9.5,
     fontWeight: "bold",
     color: "#ffffff",
-    marginBottom: 8,
+    marginBottom: 6,
     marginTop: 0,
     textTransform: "uppercase",
     letterSpacing: 0.5,
   },
   text: {
-    fontSize: 9,
-    lineHeight: 1.4,
+    fontSize: 8.5,
+    lineHeight: 1.3,
     color: "#333333",
   },
 });
@@ -67,8 +67,10 @@ const CVDocument = ({ lang }) => {
           {/* Education na Sidebar */}
           <CVEducation
             education={data.education}
+            technicalEducation={data.technicalEducation}
             certifications={data.certifications}
             educationLabel={data.labels.education}
+            technicalEducationLabel={data.labels.technicalEducation}
             certificationsLabel={data.labels.certifications}
             sidebar
           />

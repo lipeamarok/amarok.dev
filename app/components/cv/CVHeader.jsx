@@ -2,40 +2,40 @@ import { View, Text, StyleSheet, Link } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
   header: {
-    marginBottom: 15,
-    paddingBottom: 12,
+    marginBottom: 10,
+    paddingBottom: 8,
     borderBottom: "2 solid #37474F",
   },
   name: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
     color: "#1a1a1a",
-    marginBottom: 3,
+    marginBottom: 2,
     lineHeight: 1.2,
   },
   title: {
-    fontSize: 11,
+    fontSize: 10,
     color: "#0e4276ff",
-    marginBottom: 10,
+    marginBottom: 6,
     lineHeight: 1.2,
   },
   contactRow: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 8,
+    gap: 5,
     flexWrap: "wrap",
   },
   contactItem: {
-    fontSize: 8.5,
+    fontSize: 7.5,
     color: "#666666",
   },
   link: {
-    fontSize: 8.5,
+    fontSize: 7.5,
     color: "#666666",
     textDecoration: "none",
   },
   separator: {
-    fontSize: 8.5,
+    fontSize: 7.5,
     color: "#cccccc",
   },
 });
@@ -60,6 +60,15 @@ const CVHeader = ({ data }) => {
         <Link src={`https://${data.github}`} style={styles.link}>
           {data.github}
         </Link>
+
+        {data.portfolio && (
+          <>
+            <Text style={styles.separator}>•</Text>
+            <Link src={`https://${data.portfolio}`} style={styles.link}>
+              {data.portfolio}
+            </Link>
+          </>
+        )}
       </View>
     </View>
   );

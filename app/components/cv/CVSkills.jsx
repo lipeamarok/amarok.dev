@@ -2,30 +2,30 @@ import { View, Text, StyleSheet } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
   section: {
-    marginBottom: 15,
+    marginBottom: 10,
   },
   sectionTitle: {
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: "bold",
     color: "#81D4FA",
-    marginBottom: 8,
+    marginBottom: 6,
     marginTop: 0,
     textTransform: "uppercase",
     letterSpacing: 0.3,
   },
   categoryContainer: {
-    marginBottom: 7,
+    marginBottom: 5,
   },
   categoryLabel: {
-    fontSize: 9,
+    fontSize: 8.5,
     fontWeight: "bold",
     color: "#ffffff",
-    marginBottom: 2,
+    marginBottom: 1,
   },
   skillsList: {
-    fontSize: 8,
+    fontSize: 7.5,
     color: "#CFD8DC",
-    lineHeight: 1.3,
+    lineHeight: 1.2,
   },
 });
 

@@ -2,18 +2,18 @@ import { View, Text, StyleSheet } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
   section: {
-    marginBottom: 11,
+    marginBottom: 8,
   },
   sectionTitle: {
-    fontSize: 11,
+    fontSize: 10,
     fontWeight: "bold",
     color: "#1a1a1a",
-    marginBottom: 7,
+    marginBottom: 4,
     borderBottom: "2 solid #5B9FE3",
-    paddingBottom: 3,
+    paddingBottom: 2,
   },
   experienceItem: {
-    marginBottom: 8,
+    marginBottom: 6,
   },
   experienceHeader: {
     flexDirection: "row",
@@ -21,29 +21,35 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   jobTitle: {
-    fontSize: 10,
+    fontSize: 9.5,
     fontWeight: "bold",
     color: "#1a1a1a",
   },
   period: {
-    fontSize: 9,
+    fontSize: 8.5,
     color: "#666666",
     fontStyle: "italic",
   },
   company: {
-    fontSize: 9.5,
+    fontSize: 9,
     color: "#0e4276ff",
-    marginBottom: 3,
+    marginBottom: 2,
     fontWeight: "semibold",
+  },
+  description: {
+    fontSize: 8.5,
+    color: "#444444",
+    marginBottom: 2,
+    lineHeight: 1.2,
   },
   achievementsList: {
     marginLeft: 10,
   },
   achievement: {
-    fontSize: 9,
+    fontSize: 8.5,
     color: "#333333",
-    marginBottom: 2,
-    lineHeight: 1.3,
+    marginBottom: 1,
+    lineHeight: 1.2,
   },
 });
 
@@ -60,6 +66,10 @@ const CVExperience = ({ data, label }) => {
           </View>
 
           <Text style={styles.company}>{exp.company}</Text>
+
+          {exp.description && (
+            <Text style={styles.description}>{exp.description}</Text>
+          )}
 
           <View style={styles.achievementsList}>
             {exp.achievements.map((achievement, idx) => (

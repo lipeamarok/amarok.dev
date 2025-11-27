@@ -1,19 +1,19 @@
-import { View, Text, StyleSheet } from "@react-pdf/renderer";
+import { View, Text, StyleSheet, Link } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
   section: {
-    marginBottom: 11,
+    marginBottom: 8,
   },
   sectionTitle: {
-    fontSize: 11,
+    fontSize: 10,
     fontWeight: "bold",
     color: "#1a1a1a",
-    marginBottom: 7,
+    marginBottom: 4,
     borderBottom: "2 solid #5B9FE3",
-    paddingBottom: 3,
+    paddingBottom: 2,
   },
   projectItem: {
-    marginBottom: 7,
+    marginBottom: 5,
   },
   projectHeader: {
     flexDirection: "row",
@@ -21,23 +21,29 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   projectName: {
-    fontSize: 10,
+    fontSize: 9.5,
     fontWeight: "bold",
     color: "#1a1a1a",
   },
+  awardLink: {
+    fontSize: 9.5,
+    fontWeight: "bold",
+    color: "#1a1a1a",
+    textDecoration: "none",
+  },
   period: {
-    fontSize: 9,
+    fontSize: 8.5,
     color: "#666666",
     fontStyle: "italic",
   },
   description: {
-    fontSize: 9,
+    fontSize: 8.5,
     color: "#333333",
-    marginBottom: 2,
-    lineHeight: 1.3,
+    marginBottom: 1,
+    lineHeight: 1.2,
   },
   tech: {
-    fontSize: 8,
+    fontSize: 7.5,
     color: "#0e4276ff",
     fontStyle: "italic",
   },
@@ -51,7 +57,14 @@ const CVProjects = ({ data, label }) => {
       {data.map((project, index) => (
         <View key={index} style={styles.projectItem}>
           <View style={styles.projectHeader}>
-            <Text style={styles.projectName}>{project.name}</Text>
+            <Text style={styles.projectName}>
+              {project.name}{" "}
+              {project.award && (
+                <Link src={project.awardLink} style={styles.awardLink}>
+                  {project.award}
+                </Link>
+              )}
+            </Text>
             <Text style={styles.period}>{project.period}</Text>
           </View>
 
