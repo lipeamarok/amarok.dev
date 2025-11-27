@@ -285,6 +285,11 @@ export default function AboutPage() {
             </p>
 
             <p className="text-gray-300 leading-relaxed text-lg">
+              {t.story.p9Mid}
+              <span className="font-semibold text-white">{t.story.p9Highlight}</span>
+            </p>
+
+            <p className="text-gray-300 leading-relaxed text-lg">
               {t.story.p10}
               <span className="font-semibold">{t.story.p10Highlight}</span>
               {t.story.p10End}
@@ -323,16 +328,15 @@ export default function AboutPage() {
             <p className="text-gray-300 leading-relaxed text-lg">{t.story.p18}</p>
 
             <div
-              grid
-              className="relative w-full h-64 rounded-xl overflow-hidden border border-white/10 shadow-lg shadow-black/40"
+              className="relative w-full rounded-xl overflow-hidden border border-white/10 shadow-lg shadow-black/40 p-8 bg-white/5"
             >
-              <p className="text-gray-300 leading-relaxed text-lg font-bold text-center">
+              <p className="text-gray-300 leading-relaxed text-lg font-bold text-center mb-4">
                 {t.story.todayTitle}
               </p>
-              <p className="text-gray-300 leading-relaxed text-lg text-center">
+              <p className="text-gray-300 leading-relaxed text-lg text-center mb-6">
                 {t.story.todayIntro}
               </p>
-              <ul className="list-disc list-inside text-gray-300 leading-relaxed text-lg text-align-left max-w-2xl mx-auto">
+              <ul className="list-disc list-inside text-gray-300 leading-relaxed text-lg text-align-left max-w-2xl mx-auto space-y-2">
                 {t.story.todayItems.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
@@ -352,69 +356,52 @@ export default function AboutPage() {
                 {
                   title: "Languages & Core",
                   icon: <FiCode className="text-[#5B9FE3]" />,
-                  items: ["Julia", "Python", "Rust", "TypeScript", "JavaScript"],
+                  items: ["Julia (High-Performance Computing)", "Python (Advanced & AsyncIO)", "Rust (Systems Programming)", "TypeScript / JavaScript", "SQL (Advanced Queries & Optimization)"],
                 },
                 {
-                  title: "AI & Multi-Agent Systems",
+                  title: "AI & Multi-Agent Engineering",
                   icon: <FiCpu className="text-[#5B9FE3]" />,
                   items: [
-                    "OpenAI API",
+                    "OpenAI / LLM APIs",
                     "Multi-Agent Orchestration",
-                    "LLM Integrations",
-                    "AI-Driven Diagnostics",
+                    "RAG (Retrieval-Augmented Generation)",
+                    "Vector Embeddings",
                     "Machine Learning",
-                    "Turing.jl",
-                    "Flux.jl",
+                    "Turing.jl / Flux.jl",
                   ],
                 },
                 {
-                  title: "Backend Stack",
+                  title: "Backend & Data Engineering",
                   icon: <FiServer className="text-[#5B9FE3]" />,
                   items: [
                     "FastAPI",
-                    "SQLAlchemy",
-                    "Alembic",
-                    "APScheduler",
-                    "Uvicorn",
-                    "Jinja2",
+                    "SQLAlchemy / Alembic",
+                    "Pandas / NumPy",
+                    "Web Scraping (Selenium/Soup)",
+                    "Task Queues (APScheduler/Celery)",
+                    "Redis",
                   ],
                 },
                 {
                   title: "Frontend & Desktop",
                   icon: <FiLayers className="text-[#5B9FE3]" />,
                   items: [
-                    "Next.js 14",
-                    "React",
+                    "Next.js",
+                    "React ecosystem",
                     "Vite",
-                    "Zustand",
+                    "Zustand (State Management)",
                     "TailwindCSS",
-                    "Tauri",
+                    "Tauri (Rust-based Apps)",
                   ],
                 },
                 {
-                  title: "DevOps & Infrastructure",
-                  icon: <FiServer className="text-[#5B9FE3]" />,
-                  items: [
-                    "Docker",
-                    "Render",
-                    "Vercel",
-                    "NeonDB",
-                    "PostgreSQL",
-                    "SQLite",
-                    "Git",
-                    "GitHub Actions",
-                    "CI/CD",
-                    "Swagger/OpenAPI",
-                  ],
-                },
-                {
-                  title: "Web3 & Security",
+                  title: "Web3 & Blockchain Forensics",
                   icon: <FiHexagon className="text-[#5B9FE3]" />,
                   items: [
-                    "Solana RPC",
-                    "Wallet Forensics",
-                    "EVM Security",
-                    "Smart Contracts",
+                    "Solana RPC Nodes",
+                    "Wallet Forensics & Tracing",
+                    "EVM Security Tools (Slither/Foundry)",
+                    "Smart Contracts Integration",
                     "Bug Bounty Automation",
                     "SAST / DAST",
                     "Slither",
@@ -422,62 +409,22 @@ export default function AboutPage() {
                   ],
                 },
                 {
-                  title: "Integrations & APIs",
+                  title: "DevOps, QA & Architecture",
                   icon: <FiLink2 className="text-[#5B9FE3]" />,
                   items: [
-                    "Meta Ads API",
-                    "Facebook Marketing API",
+                    "Docker & Containerization",
+                    "CI/CD Pipelines (GitHub Actions)",
                     "OAuth2",
-                    "OpenAI API",
-                    "Twilio API",
-                    "JWT",
-                  ],
-                },
-                {
-                  title: "Tools & Libraries",
-                  icon: <FiTool className="text-[#5B9FE3]" />,
-                  items: [
-                    "Axios",
-                    "Pydantic",
-                    "Passlib",
-                    "bcrypt",
-                    "python-jose",
-                    "React Toastify",
-                    "date-fns",
-                    "react-icons",
+                    "TDD / Testing (Pytest)",
                     "Postman",
-                    "Pytest",
-                  ],
-                },
-                {
-                  title: "Architecture & Engineering",
-                  icon: <FiGrid className="text-[#5B9FE3]" />,
-                  items: [
-                    "Modular Architecture",
-                    "High-Performance Computing",
-                    "Multi-Agent Systems",
-                    "Microservices",
-                    "SSR/CSR Optimization",
-                    "Job Scheduling",
+                    "Linux / Bash Automation",
+                    "PostgreSQL / NeonDB (Serverless)",
+                    "Microservices & Modular Monoliths",
                     "JWT + Refresh Tokens",
-                    "Docker Orchestration",
-                    "Pipeline Automation",
                   ],
                 },
-                {
-                  title: "Product & Content",
-                  icon: <FiFeather className="text-[#5B9FE3]" />,
-                  items: [
-                    "UX Writing",
-                    "Product Design",
-                    "Educational Content",
-                    "Video Editing",
-                    "Market Analysis",
-                    "User Journey Mapping",
-                    "Growth Strategy",
-                    "Business Vision",
-                  ],
-                },
+
+
               ].map((section) => (
                 <div
                   key={section.title}
@@ -606,29 +553,32 @@ export default function AboutPage() {
           </section>
 
           {/* ========== VALUES SECTION ========== */}
-          <section id="values" className="relative mt-24">
-            <div className="text-center mb-16">
+          <section id="values" className="relative mt-16">
+            <div className="text-center mb-10">
               <h2 className="text-4xl font-bold text-white mb-4">{t.valuesTitle}</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#5B9FE3] to-transparent mx-auto"></div>
             </div>
 
-            {/* Grid de princípios */}
-            <div className="space-y-8 max-w-4xl mx-auto">
-              {/* Princípio 1 - Liberdade */}
-              <div className="group relative">
-                <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-[#5B9FE3]/60 via-[#5B9FE3]/30 to-transparent rounded-full"></div>
-                <div className="pl-8">
-                  <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#5B9FE3] transition-colors duration-300">
+            <div className="max-w-5xl mx-auto space-y-6">
+
+              {/* Top Principles Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Principle 1 */}
+                <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-[#5B9FE3]/40 transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-full bg-[#5B9FE3]/10 flex items-center justify-center mb-6 group-hover:bg-[#5B9FE3]/20 transition-colors">
+                    <FiFeather className="w-6 h-6 text-[#5B9FE3]" />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">
                     {t.values.principle1}
                   </h3>
                 </div>
-              </div>
 
-              {/* Princípio 2 - Descentralização */}
-              <div className="group relative pl-4">
-                <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-[#5B9FE3]/60 via-[#5B9FE3]/30 to-transparent rounded-full"></div>
-                <div className="pl-8">
-                  <p className="text-lg text-gray-300 leading-relaxed mb-4">
+                {/* Principle 2 */}
+                <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-[#5B9FE3]/40 transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-full bg-[#5B9FE3]/10 flex items-center justify-center mb-6 group-hover:bg-[#5B9FE3]/20 transition-colors">
+                    <FiHexagon className="w-6 h-6 text-[#5B9FE3]" />
+                  </div>
+                  <p className="text-lg text-gray-300 leading-relaxed">
                     {t.values.principle2}{" "}
                     <span className="text-white font-medium">
                       {t.values.principle2Words[0]}
@@ -643,70 +593,82 @@ export default function AboutPage() {
                     </span>{" "}
                     {t.values.principle2End}
                   </p>
-                  <p className="text-gray-400 leading-relaxed">
-                    {t.values.principle2Footer}
-                  </p>
                 </div>
               </div>
 
-              {/* Manifesto Central */}
-              <div className="relative my-16">
-                <div className="bg-gradient-to-br from-[#5B9FE3]/10 via-[#5B9FE3]/5 to-transparent border border-[#5B9FE3]/30 rounded-2xl p-10 backdrop-blur-sm">
-                  <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-[#5B9FE3]/60 rounded-tl-lg"></div>
-                  <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-[#5B9FE3]/60 rounded-br-lg"></div>
+              {/* Manifesto Intro */}
+              <div className="text-center mt-4 -mb-6 relative z-10">
+                <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">
+                  {t.values.principle2Footer}
+                </p>
+              </div>
 
-                  <blockquote className="text-center">
-                    <p className="text-3xl md:text-4xl font-bold text-white leading-tight">
+              {/* Manifesto */}
+              <div className="relative py-4">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#5B9FE3]/5 to-transparent blur-xl"></div>
+                <div className="relative bg-[#0e0e10]/50 border-y border-white/10 backdrop-blur-sm py-8 text-center">
+                  <blockquote className="max-w-3xl mx-auto px-6">
+                    <p className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
                       {t.values.manifesto1}{" "}
-                      <span className="text-[#5B9FE3]">{t.values.manifesto2}</span>,
-                      <br />
-                      {t.values.manifesto3}
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5B9FE3] to-[#4A8ED2]">
+                        {t.values.manifesto2}
+                      </span>
+                      <br className="hidden md:block" />
+                      {" "}{t.values.manifesto3}
                     </p>
                   </blockquote>
                 </div>
               </div>
 
-              {/* Princípio 3 - Propósito */}
-              <div className="group relative pl-4">
-                <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-[#5B9FE3]/60 via-[#5B9FE3]/30 to-transparent rounded-full"></div>
-                <div className="pl-8 space-y-4">
-                  <p className="text-lg text-gray-300 leading-relaxed">
-                    {t.values.purpose1}
-                  </p>
-                  <p className="text-lg text-gray-300 leading-relaxed">
-                    {t.values.purpose2}{" "}
-                    <span className="text-white font-medium">
-                      {t.values.purpose2Highlight}
-                    </span>
-                    {t.values.purpose2End}{" "}
-                    <span className="text-[#5B9FE3] font-semibold">
-                      {t.values.purpose2Final}
-                    </span>
-                    .
-                  </p>
+              {/* Objectives & Conclusion Grid */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+                {/* Objectives (Purpose) */}
+                <div className="lg:col-span-7 p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-[#5B9FE3]/40 transition-all duration-300">
+                  <h3 className="text-xl font-semibold text-white mb-8 flex items-center gap-3">
+                    <FiTool className="text-[#5B9FE3]" />
+                    {t.values.objectiveTitle}
+                  </h3>
+
+                  <div className="space-y-6">
+                    {[
+                      { h: t.values.purpose1Highlight, t: t.values.purpose1 },
+                      { h: t.values.purpose2Highlight, t: t.values.purpose2 },
+                      { h: t.values.purpose3Highlight, t: t.values.purpose3 }
+                    ].map((item, idx) => (
+                      <div key={idx} className="flex gap-4">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#5B9FE3] mt-2.5 flex-shrink-0" />
+                        <p className="text-lg text-gray-300 leading-relaxed">
+                          <span className="text-white font-medium block mb-1">{item.h}</span>
+                          {item.t}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
+
+                {/* Conclusion */}
+                <div className="lg:col-span-5 p-8 rounded-2xl bg-gradient-to-br from-[#5B9FE3]/10 to-transparent border border-[#5B9FE3]/20 flex flex-col justify-center">
+                  <div className="space-y-6">
+                    <p className="text-xl text-white font-medium leading-relaxed">
+                      {t.values.conclusion1}
+                    </p>
+                    <p className="text-lg text-gray-300 leading-relaxed">
+                      {t.values.conclusion2}
+                    </p>
+                    <div className="h-px w-12 bg-[#5B9FE3]/50 my-4"></div>
+                    <p className="text-xl text-[#5B9FE3] font-bold leading-relaxed">
+                      {t.values.conclusion3Highlight}
+                    </p>
+                  </div>
+                </div>
+
               </div>
 
-              {/* Conclusão */}
-              <div className="group relative pl-4">
-                <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-[#5B9FE3]/60 via-[#5B9FE3]/30 to-transparent rounded-full"></div>
-                <div className="pl-8 space-y-4">
-                  <p className="text-lg text-white font-medium leading-relaxed">
-                    {t.values.conclusion1}
-                  </p>
-                  <p className="text-lg text-white font-medium leading-relaxed">
-                    {t.values.conclusion2}{" "}
-                    <span className="text-[#5B9FE3] font-semibold">
-                      {t.values.conclusion2Highlight}
-                    </span>
-                    .
-                  </p>
-                </div>
-              </div>
             </div>
 
-            {/* Elemento decorativo de fundo */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#5B9FE3]/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+            {/* Background Decor */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#5B9FE3]/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
           </section>
 
           {/* ========== PROFESSIONAL EXPERIENCE SECTION ========== */}
@@ -781,9 +743,18 @@ export default function AboutPage() {
                     {t.experience.founder.company}
                   </p>
 
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed mb-4">
                     {t.experience.founder.description}
                   </p>
+
+                  <ul className="space-y-2 text-gray-300">
+                    {t.experience.founder.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-[#5B9FE3] mt-1.5">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
