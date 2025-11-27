@@ -121,7 +121,7 @@ export default function AboutPage() {
                     src="/profile2.JPG"
                     alt="Filipe Amarok"
                     fill
-                    className="object-cover grayscale hover:grayscale-[50%] transition-all duration-500"
+                    className="object-cover grayscale hover:grayscale-0 hover:contrast-110 transition-all duration-500"
                     priority
                   />
                 </div>
