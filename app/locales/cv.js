@@ -1,5 +1,3 @@
-import { desc } from "framer-motion/client";
-
 export const cvData = {
   pt: {
     // Informações de Contato
@@ -12,17 +10,17 @@ export const cvData = {
       portfolio: "lipeamarok.dev",
     },
 
-    // Resumo Profissional (substituindo a Story)
+    // Resumo Profissional
     summary:
-      "Engenheiro de Software com +5 anos de experiência prática em desenvolvimento," +
-      " Full-Stack, Automação e IA. Histórico único combinando 10 anos de setor financeiro," +
+      "Engenheiro de Software com +4 anos de experiência prática em desenvolvimento" +
+      " Full-Stack, Automação e IA. Histórico único combinando 10 anos de setor financeiro" +
       " com engenharia de software aplicada. Especialista em Python, Rust e Julia, com foco" +
       " em sistemas de alta performance, arquitetura de microsserviços e soluções Web3." +
-      " Liderou iniciativas de Shadow IT em grandes instituições bancárias," +
-      " automatizando processos críticos com scripts de dados. Vencedor de Hackathon Global " +
-      "(Superteam Solana) e criador de arquiteturas SaaS escaláveis.",
+      " Projetou e implementou ferramentas de automação interna adotadas por equipes financeiras" +
+      " para eliminar fluxos manuais. Vencedor de Hackathon Global" +
+      " (Superteam Solana), criador de arquiteturas distribuídas escaláveis e especialista em sistemas de IA multi-agente.",
 
-    // Skills (agrupadas para CV)
+    // Skills
     skills: {
       languages: [
         "Python",
@@ -31,73 +29,63 @@ export const cvData = {
         "TypeScript",
         "JavaScript",
         "SQL",
-        "COBOL (Legacy)"
+        "COBOL (legacy)",
       ],
       backend: [
         "FastAPI",
         "Node.js",
         "Microservices",
         "Async Programming",
-        "REST APIs"
+        "REST APIs",
       ],
-      frontend: [
-        "Next.js",
-        "React",
-        "TailwindCSS",
-        "Vite"
-      ],
+      frontend: ["Next.js", "React", "TailwindCSS", "Vite"],
       data_engineering: [
+        "PostgreSQL", // Adicionado conforme sugestão
         "Pandas/NumPy",
         "SQLAlchemy",
         "Alembic (migrations)",
         "Redis",
-        "Web Scraping"
+        "Web Scraping",
       ],
       ai_agents: [
-        "OpenAI/Grok API",
+        "OpenAI API / Grok API",
         "Multi-Agent Orchestration",
-        "RAG (Retrieval-Augmented Generation)",
+        "RAG (retrieval-augmented generation)", // Ajustado capitalização
         "LLM Integration",
         "Vector Embeddings",
-        "Machine Learning"
+        "machine learning",
       ],
       web3_security: [
         "Solana RPC",
         "Smart Contracts",
         "Wallet Forensics",
         "Slither",
-        "Blockchain Data Analysis"
+        "Blockchain Data Analysis",
       ],
-      devops_infrastructure: [
-        "Docker",
-        "CI/CD",
-        "AWS",
-        "Linux/Bash",
-        "Git"
-      ],
+      devops_infrastructure: ["Docker", "CI/CD", "AWS", "Linux/Bash", "Git"],
       quality_testing: [
         "Pytest",
         "Robot Framework",
         "API Testing",
         "Postman/Insomnia",
-        "Swagger/OpenAPI"
-      ]
+        "Swagger/OpenAPI",
+      ],
     },
 
-    // Projetos (resumidos)
+    // Projetos
     projects: [
       {
         name: "Ghost Wallet Hunter",
         award: "(4º Lugar - Superteam Solana Hackathon)",
         awardLink: "https://earn.superteam.fun/listing/ai-dapp-development",
         description:
-          "Sistema de inteligência forense para rastreio de wallets na Solana. Utiliza arquitetura multi-agente para detectar padrões de lavagem de dinheiro e fraudes que exploradores de blocos comuns não identificam.",
+          "Sistema de inteligência forense para rastreio de wallets na Solana. Utilizado por analistas para detectar padrões de lavagem de dinheiro não visíveis em exploradores comuns. Inclui interface React para visualização de trilhas de investigação.",
         tech: "Julia, Solana RPC, React, AI Agents",
       },
       {
         name: "AISYAD",
         description:
-          "SaaS de automação inteligente para Meta Ads com diagnóstico por IA e integração OAuth2.",
+          "Plataforma de automação inteligente para Meta Ads com diagnóstico por IA e integração OAuth2.",
         tech: "FastAPI, Python, PostgreSQL, Next.js, OpenAI API",
       },
       {
@@ -108,19 +96,18 @@ export const cvData = {
       },
     ],
 
-    // Experiência (do about.js,  mas formatada para CV)
+    // Experiência PT
     experience: [
       {
         title: "Software Engineer & AI Researcher",
         company: "Self-Employed",
-        period: "Jan 2021 - presente",
-        description: "Desenvolvimento e arquitetura end-to-end de soluções SaaS e ferramentas de segurança:",
+        period: "Jan 2021 - Presente",
+        description:
+          "Desenvolvimento e arquitetura end-to-end de soluções cloud-native e ferramentas de segurança:",
         achievements: [
-          " Engenharia de Produto: Arquiteto principal do AISYAD, plataforma SaaS de automação de marketing com microsserviços " +
-          "em FastAPI e Next.js, integrando OAuth2 e filas assíncronas;",
-          " Web3 Innovation: Arquiteto do Ghost Wallet Hunter, motor forense premiado que orquestra 7 agentes autônomos em Julia/Rust, atingindo detecção de fraudes em real-time na Mainnet da Solana;",
-          " Performance: Implementou sistemas de Bug Hunting automatizado com contêineres Docker " +
-          "e loops de aprendizado contínuo;",
+          " Engenharia de Produto: Arquiteto principal do AISYAD. Desenvolveu toda a arquitetura frontend em Next.js integrada a microsserviços backend em FastAPI, deployados na AWS com pipelines CI/CD;",
+          " Web3 Innovation: Arquiteto do Ghost Wallet Hunter, motor forense premiado que orquestra 7 agentes autônomos em Julia/Rust, atingindo detecção de fraudes em tempo real (latência <100ms por evento de detecção);",
+          " Performance: Implementou sistemas de Bug Hunting automatizado com contêineres Docker e loops de aprendizado contínuo;",
           " Consultoria: Desenvolvimento de scripts de automação e ETL para clientes do setor financeiro.",
         ],
       },
@@ -128,39 +115,41 @@ export const cvData = {
         title: "Fundador & Analista Cripto",
         company: "Descentralizando",
         period: "Jul 2024 - Presente",
-        description: "Blog sobre finanças, investimentos, Web3, blockchain e DeFi:",
+        description:
+          "Blog sobre finanças, investimentos, Web3, blockchain e DeFi:",
         achievements: [
           " Artigos técnicos e análises macroeconômicas;",
-          " Desenvolvimento de estratégias baseadas em dados on-chain e análise técnica de Smart Contracts e DeFi."
+          " Desenvolvimento de estratégias baseadas em dados on-chain e análise técnica de Smart Contracts e DeFi.",
         ],
       },
       {
-        title: "Especialista de Investimentos & Data Automation",
+        title: "Especialista de Investimentos | Automation & Data Lead",
         company: "Bradesco",
         period: "Ago 2022 - Mar 2025",
-        description: "Gestão de carteira Alta Renda com viés quantitativo e analítico",
+        description:
+          "Gestão de carteira Alta Renda combinada com liderança técnica em automação:",
         achievements: [
-          " Automação de Dados: Desenvolvimento de scripts em Python (Pandas) para processamento em lote de carteiras de investimento, reduzindo o tempo de análise manual;",
-          " Acompanhamento macroeconômico: Avaliação de fundos, previdência, mercado internacional e renda variável;",
-          " Dashboards e BI: Criação de ferramentas internas para visualização de alocação de ativos e monitoramento de KPIs;",
-          " Condução de estratégias alinhadas a suitability e objetivos de longo prazo.",
+          " Liderança em automações técnicas que ampliaram a capacidade analítica e reduziram carga operacional das equipes;", // Nova linha de impacto
+          " Automação de Dados: Desenvolvimento de scripts em Python (Pandas) para processamento em lote de carteiras, reduzindo o tempo de análise manual em 40%;",
+          " Dashboards e BI: Criação de dashboards interativos para visualização de alocação de ativos e monitoramento de KPIs;",
+          " Acompanhamento macroeconômico e execução de estratégias alinhadas a objetivos de longo prazo.",
         ],
       },
       {
         title: "Analista de Operações e Processos",
         company: "Cooperforte",
         period: "Jul 2016 - Ago 2022",
-        description: "Início como estagiário com crescimento interno. Experiência que consolidou visão sistêmica, disciplina operacional e maturidade na relação com clientes e processos:",
+        description:
+          "Início como estagiário com crescimento interno. Foco em integridade operacional e eficiência de processos:",
         achievements: [
           " Validação de Regras de Negócio: Responsável pela integridade operacional e testes lógicos de fluxos de aprovação de crédito;",
           " Migração e Saneamento: Atuação na estruturação de dados para relatórios gerenciais e auditoria utilizando SQL e lógica avançada;",
           " Otimização de rotinas administrativas através da padronização de processos e suporte técnico a produtos financeiros.",
-
         ],
       },
     ],
 
-    // Educação
+    // Educação PT
     education: [
       {
         degree: "MBA — Finanças, Investimentos e Banking",
@@ -176,8 +165,9 @@ export const cvData = {
 
     technicalEducation: [
       {
-        degree: "Engenharia de Software",
-        institution: "Foco intensivo em arquitetura distribuída",
+        degree: "Estudo Independente & Pesquisa em Engenharia",
+        institution:
+          "Foco em sistemas distribuídos, performance em Rust/Julia e Orquestração Multi-Agente",
         period: "2021 – Presente",
       },
       {
@@ -192,10 +182,11 @@ export const cvData = {
       },
     ],
 
-    // Certificações
-    certifications: ["CEA — ANBIMA (Especialista em Investimentos)", "CPA-20 — ANBIMA"],
+    certifications: [
+      "CEA — ANBIMA (Especialista em Investimentos)",
+      "CPA-20 — ANBIMA",
+    ],
 
-    // Labels de seção
     labels: {
       contact: "Contato",
       summary: "Resumo Profissional",
@@ -209,7 +200,7 @@ export const cvData = {
   },
 
   en: {
-    // Mesma estrutura, traduzida
+    // English Section
     contact: {
       name: "Filipe Amorim Arouck de Souza",
       title: "Software Engineer | Python, Rust & AI Specialist",
@@ -220,13 +211,13 @@ export const cvData = {
     },
 
     summary:
-      "Software Engineer with 5+ years of practical experience in Full-Stack development," +
+      "Software Engineer with +4 years of practical experience in Full-Stack development," +
       " Automation, and AI. Unique background combining 10 years in the financial sector" +
       " with applied software engineering. Specialist in Python, Rust, and Julia, focusing" +
       " on high-performance systems, microservices architecture, and Web3 solutions." +
-      " Led Shadow IT initiatives at major banking institutions," +
-      " automating critical processes with data scripts. Global Hackathon Winner" +
-      " (Superteam Solana) and creator of scalable SaaS architectures.",
+      " Engineered internal automation tools adopted by financial teams to eliminate" +
+      " manual workflows. Global Hackathon Winner" +
+      " (Superteam Solana), creator of scalable distributed architectures, and specialist in multi-agent AI systems.",
 
     skills: {
       languages: [
@@ -236,57 +227,47 @@ export const cvData = {
         "TypeScript",
         "JavaScript",
         "SQL",
-        "COBOL (Legacy)"
+        "COBOL (legacy)",
       ],
       backend: [
         "FastAPI",
         "Node.js",
         "Microservices",
         "Async Programming",
-        "REST APIs"
+        "REST APIs",
       ],
-      frontend: [
-        "Next.js",
-        "React",
-        "TailwindCSS",
-        "Vite"
-      ],
+      frontend: ["Next.js", "React", "TailwindCSS", "Vite"],
       data_engineering: [
+        "PostgreSQL", // Adicionado
         "Pandas/NumPy",
         "SQLAlchemy",
         "Alembic (migrations)",
         "Redis",
-        "Web Scraping"
+        "Web Scraping",
       ],
       ai_agents: [
-        "OpenAI/Grok API",
+        "OpenAI API / Grok API",
         "Multi-Agent Orchestration",
-        "RAG (Retrieval-Augmented Generation)",
+        "RAG (retrieval-augmented generation)", // Ajustado
         "LLM Integration",
         "Vector Embeddings",
-        "Machine Learning"
+        "machine learning",
       ],
       web3_security: [
         "Solana RPC",
         "Smart Contracts",
         "Wallet Forensics",
         "Slither",
-        "Blockchain Data Analysis"
+        "Blockchain Data Analysis",
       ],
-      devops_infrastructure: [
-        "Docker",
-        "CI/CD",
-        "AWS",
-        "Linux/Bash",
-        "Git"
-      ],
+      devops_infrastructure: ["Docker", "CI/CD", "AWS", "Linux/Bash", "Git"],
       quality_testing: [
         "Pytest",
         "Robot Framework",
         "API Testing",
         "Postman/Insomnia",
-        "Swagger/OpenAPI"
-      ]
+        "Swagger/OpenAPI",
+      ],
     },
 
     projects: [
@@ -295,13 +276,13 @@ export const cvData = {
         award: "(4th Place - Superteam Solana Hackathon)",
         awardLink: "https://earn.superteam.fun/listing/ai-dapp-development",
         description:
-          "Forensic intelligence system for Solana wallet tracking. Utilizes multi-agent architecture to detect money laundering patterns and frauds that common block explorers do not identify.",
+          "Forensic intelligence system for Solana wallet tracking. Built the React-based interface for visualizing agent outputs and wallet investigation trails. Utilizes multi-agent architecture to identify suspicious patterns beyond standard explorers.",
         tech: "Julia, Solana RPC, React, AI Agents",
       },
       {
         name: "AISYAD",
         description:
-          "Intelligent automation SaaS for Meta Ads with AI diagnostics and OAuth2 integration.",
+          "Intelligent automation platform for Meta Ads with AI diagnostics and OAuth2 integration.",
         tech: "FastAPI, Python, PostgreSQL, Next.js, OpenAI API",
       },
       {
@@ -317,48 +298,53 @@ export const cvData = {
         title: "Software Engineer & AI Researcher",
         company: "Self-Employed",
         period: "Jan 2021 - Present",
-        description: "End-to-end architecture and development of SaaS solutions and Web3 security tools:",
+        description:
+          "End-to-end architecture and development of cloud-native solutions and Web3 security tools:",
         achievements: [
-          " Product Engineering: Lead Architect of AISYAD, a marketing automation SaaS platform with microservices architecture in FastAPI and Next.js, integrating OAuth2 and asynchronous queues;",
-          " Web3 Innovation: Architect of Ghost Wallet Hunter, an award-winning forensic engine orchestrating 7 autonomous agents in Julia/Rust, achieving real-time fraud detection on the Solana Mainnet;",
+          " Product Engineering: Lead Architect of AISYAD. Developed frontend architecture in Next.js integrated with backend microservices, deployed on AWS using CI/CD pipelines;",
+          " Web3 Innovation: Architect of Ghost Wallet Hunter, an award-winning forensic engine orchestrating 7 autonomous agents in Julia/Rust, achieving real-time (sub-100ms latency per fraud-detection event) on Solana Mainnet;",
           " Performance Engineering: Implementation of automated Bug Hunting systems using Docker containers and continuous learning loops;",
-          " Consulting: Development of automation scripts and ETL for financial sector clients.",
+          " Consulting: Delivered automation scripts and ETL solutions for clients in the financial sector.",
         ],
       },
       {
         title: "Founder & Crypto Analyst",
         company: "Descentralizando",
         period: "Jul 2024 - Present",
-        description: "Blog about finance, investments, Web3, blockchain, and DeFi:",
+        description:
+          "Blog about finance, investments, Web3, blockchain, and DeFi:",
         achievements: [
-          " Technical articles and macroeconomic analyses;",
-          " Development of strategies based on on-chain data and technical analysis of Smart Contracts and DeFi."
+          " Produced educational content on DeFi, on-chain analytics and macroeconomics;",
+          " Development of strategies based on on-chain data and technical analysis of Smart Contracts and DeFi.",
         ],
       },
       {
-        title: "Investment Specialist & Data Automation",
+        title: "Investment Specialist | Automation & Data Lead",
         company: "Bradesco",
         period: "Aug 2022 - Mar 2025",
-        description: "High-net-worth client portfolio management with quantitative and analytical bias:",
+        description:
+          "High-net-worth client portfolio management combined with technical leadership in automation:",
         achievements: [
-          " Data Automation: Development of Python (Pandas) scripts for batch processing of investment portfolios, reducing manual analysis time;",
-          " Macroeconomic Monitoring: Evaluation of funds, pensions, international markets, and variable income;",
-          " Dashboards and BI: Creation of internal tools for asset allocation visualization and KPI monitoring;",
-          " Execution of strategies aligned with suitability and long-term objectives.",
+          " Led automation initiatives across investment teams, improving analytical throughput and reducing operational overhead;", // Nova linha de impacto
+          " Data Automation: Developed Python (Pandas) scripts for batch processing of investment portfolios, reducing manual analysis time by 40%;",
+          " Dashboards and BI: Built BI dashboards for asset allocation, performance tracking, and KPI monitoring;",
+          " Strategy Execution: Executed strategies aligned with suitability and long-term objectives.",
         ],
       },
       {
         title: "Operations and Process Analyst",
         company: "Cooperforte",
         period: "Jul 2016 - Aug 2022",
-        description: "Started as intern and grew internally. Experience that consolidated systemic vision, operational discipline, and maturity in client and process relationships:",
+        description:
+          "Started as intern and grew internally. Focused on operational integrity and process efficiency:",
         achievements: [
-          " Business Rule Validation: Responsible for operational integrity and logical testing of credit approval flows;",
-          " Migration and Sanitation: Acting in data structuring for management reports and audit using SQL and advanced logic;",
-          " Optimization of administrative routines through process standardization and technical support for financial products.",
+          " Business Rule Validation: Ensured operational integrity and conducted logical testing of credit approval flows;",
+          " Migration and Sanitation: Structured data for management reports and audit using SQL and advanced logic;",
+          " Process Optimization: Optimized administrative routines through standardization and provided technical support for financial products.",
         ],
       },
     ],
+
     education: [
       {
         degree: "MBA — Finance, Investments, and Banking",
@@ -374,8 +360,9 @@ export const cvData = {
 
     technicalEducation: [
       {
-        degree: "Software Engineering",
-        institution: "Intensive focus on distributed architecture",
+        degree: "Independent Study & Engineering Research",
+        institution:
+          "Focus on distributed systems, Rust/Julia performance engineering, and Multi-Agent Orchestration",
         period: "2021 – Present",
       },
       {
@@ -390,7 +377,10 @@ export const cvData = {
       },
     ],
 
-    certifications: ["CEA — ANBIMA (Investment Specialist)", "CPA-20 — ANBIMA"],
+    certifications: [
+      "CEA — ANBIMA (Investment Specialist)",
+      "CPA-20 — ANBIMA",
+    ],
 
     labels: {
       contact: "Contact",
