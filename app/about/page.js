@@ -327,9 +327,7 @@ export default function AboutPage() {
             </p>
             <p className="text-gray-300 leading-relaxed text-lg">{t.story.p18}</p>
 
-            <div
-              className="relative w-full rounded-xl overflow-hidden border border-white/10 shadow-lg shadow-black/40 p-8 bg-white/5"
-            >
+            <div className="relative w-full rounded-xl overflow-hidden border border-white/10 shadow-lg shadow-black/40 p-8 bg-white/5">
               <p className="text-gray-300 leading-relaxed text-lg font-bold text-center mb-4">
                 {t.story.todayTitle}
               </p>
@@ -356,7 +354,13 @@ export default function AboutPage() {
                 {
                   title: "Languages & Core",
                   icon: <FiCode className="text-[#5B9FE3]" />,
-                  items: ["Julia (High-Performance Computing)", "Python (Advanced & AsyncIO)", "Rust (Systems Programming)", "TypeScript / JavaScript", "SQL (Advanced Queries & Optimization)"],
+                  items: [
+                    "Julia (High-Performance Computing)",
+                    "Python (Advanced & AsyncIO)",
+                    "Rust (Systems Programming)",
+                    "TypeScript / JavaScript",
+                    "SQL (Advanced Queries & Optimization)",
+                  ],
                 },
                 {
                   title: "AI & Multi-Agent Engineering",
@@ -423,8 +427,6 @@ export default function AboutPage() {
                     "JWT + Refresh Tokens",
                   ],
                 },
-
-
               ].map((section) => (
                 <div
                   key={section.title}
@@ -468,7 +470,9 @@ export default function AboutPage() {
                   titleImageHeight: 55,
                   videoDemo: "/projects/ghost-wallet-hunter/demo-GHW.mp4",
                   description:
-                    "Forensic intelligence system for Solana wallets powered by seven specialized detective agents. Built in Julia for real-time detection of exploits, fraud patterns and coordinated network behavior.",
+                    lang === "pt"
+                      ? "Sistema de inteligência forense para carteiras Solana com sete agentes detetives especializados. Construído em Julia para detecção em tempo real de exploits, padrões de fraude e comportamento de rede coordenado."
+                      : "Forensic intelligence system for Solana wallets powered by seven specialized detective agents. Built in Julia for real-time detection of exploits, fraud patterns and coordinated network behavior.",
                   stack:
                     "Julia · Oxygen.jl · Solana RPC · React · Vite · Tailwind · Three.js",
                 },
@@ -479,20 +483,24 @@ export default function AboutPage() {
                   titleImageHeight: 75,
                   videoDemo: "/projects/aisyad/demo-AISYAD.mp4",
                   description:
-                    "SaaS platform for automating Meta Ads campaigns. Create, optimize and manage ads with AI-driven diagnostics, real-time insights and full OAuth2 integration with Facebook Ads.",
+                    lang === "pt"
+                      ? "Plataforma SaaS para automação de campanhas Meta Ads. Crie, otimize e gerencie anúncios com diagnósticos baseados em IA, insights em tempo real e integração completa OAuth2 com Facebook Ads."
+                      : "SaaS platform for automating Meta Ads campaigns. Create, optimize and manage ads with AI-driven diagnostics, real-time insights and full OAuth2 integration with Facebook Ads.",
                   stack:
                     "FastAPI · Python · PostgreSQL · JWT · OAuth2 · Next.js · TypeScript · Zustand · Tailwind",
                 },
                 {
-                  slug: "bugxhunter",
-                  titleImage: "/projects/bugxhunter/logo_bug.png",
-                  titleImageWidth: 220,
-                  titleImageHeight: 30,
-                  videoDemo: "/projects/bugxhunter/demo-BugXHunter.mp4",
+                  slug: "aqa",
+                  titleImage: "/projects/aqa/aqa-logo-complete.png",
+                  titleImageWidth: 280,
+                  titleImageHeight: 60,
+                  videoDemo: "/projects/aqa/aqa-trailer.mp4",
                   description:
-                    "Autonomous bug hunting system with simulated environments, intelligent orchestration and continuous learning. Powered by Julia for high-performance analysis and Rust/Tauri for secure system operations.",
+                    lang === "pt"
+                      ? "Plataforma de testes de API com IA. Gera, valida e executa planos de teste automaticamente usando LLM (Python) + execução paralela massiva (Rust)."
+                      : "AI-powered API testing platform. Automatically generates, validates and executes test plans using LLM (Python) + massive parallel execution (Rust).",
                   stack:
-                    "Julia · Rust · Tauri · React · Docker · AI/ML · SQLite/Postgres",
+                    "Python · Rust · Pydantic · OpenAI · Click · Rich · Tokio · OTEL",
                 },
               ].map((project, i) => (
                 <Link
@@ -550,6 +558,21 @@ export default function AboutPage() {
                 </Link>
               ))}
             </div>
+
+            {/* See All Projects Button */}
+            <div className="flex justify-end mt-8">
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm text-gray-400 hover:text-white transition-colors group"
+              >
+                <span>
+                  {lang === "pt" ? "ver todos os projetos" : "see all projects"}
+                </span>
+                <span className="text-[#5B9FE3] group-hover:translate-x-1 transition-transform">
+                  →
+                </span>
+              </Link>
+            </div>
           </section>
 
           {/* ========== VALUES SECTION ========== */}
@@ -560,7 +583,6 @@ export default function AboutPage() {
             </div>
 
             <div className="max-w-5xl mx-auto space-y-6">
-
               {/* Top Principles Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Principle 1 */}
@@ -613,8 +635,7 @@ export default function AboutPage() {
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5B9FE3] to-[#4A8ED2]">
                         {t.values.manifesto2}
                       </span>
-                      <br className="hidden md:block" />
-                      {" "}{t.values.manifesto3}
+                      <br className="hidden md:block" /> {t.values.manifesto3}
                     </p>
                   </blockquote>
                 </div>
@@ -622,7 +643,6 @@ export default function AboutPage() {
 
               {/* Objectives & Conclusion Grid */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
                 {/* Objectives (Purpose) */}
                 <div className="lg:col-span-7 p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-[#5B9FE3]/40 transition-all duration-300">
                   <h3 className="text-xl font-semibold text-white mb-8 flex items-center gap-3">
@@ -634,12 +654,14 @@ export default function AboutPage() {
                     {[
                       { h: t.values.purpose1Highlight, t: t.values.purpose1 },
                       { h: t.values.purpose2Highlight, t: t.values.purpose2 },
-                      { h: t.values.purpose3Highlight, t: t.values.purpose3 }
+                      { h: t.values.purpose3Highlight, t: t.values.purpose3 },
                     ].map((item, idx) => (
                       <div key={idx} className="flex gap-4">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#5B9FE3] mt-2.5 flex-shrink-0" />
                         <p className="text-lg text-gray-300 leading-relaxed">
-                          <span className="text-white font-medium block mb-1">{item.h}</span>
+                          <span className="text-white font-medium block mb-1">
+                            {item.h}
+                          </span>
                           {item.t}
                         </p>
                       </div>
@@ -662,9 +684,7 @@ export default function AboutPage() {
                     </p>
                   </div>
                 </div>
-
               </div>
-
             </div>
 
             {/* Background Decor */}

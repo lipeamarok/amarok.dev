@@ -2,14 +2,46 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
 export default function ProjectsPage() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [speedMultiplier, setSpeedMultiplier] = useState(1); // 0.3 = slow, 1 = normal, 2.5 = fast
+  const trackRef = useRef(null);
+  const positionRef = useRef(0);
+  const animationRef = useRef(null);
+
+  // Scroll infinito via requestAnimationFrame
+  const animate = useCallback(() => {
+    if (!trackRef.current) return;
+
+    if (!isPaused) {
+      const baseSpeed = 0.5; // pixels per frame
+      positionRef.current -= baseSpeed * speedMultiplier;
+
+      // Reset quando chegar na metade (loop seamless)
+      const trackWidth = trackRef.current.scrollWidth / 2;
+      if (Math.abs(positionRef.current) >= trackWidth) {
+        positionRef.current = 0;
+      }
+
+      trackRef.current.style.transform = `translateX(${positionRef.current}px)`;
+    }
+
+    animationRef.current = requestAnimationFrame(animate);
+  }, [isPaused, speedMultiplier]);
 
   useEffect(() => {
     setIsVisible(true);
-  }, []);
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [animate]);
 
   const projects = [
     {
@@ -43,35 +75,114 @@ export default function ProjectsPage() {
         "Autonomous bug hunting system with simulated environments, intelligent orchestration and continuous learning. Powered by Julia for high-performance analysis and Rust/Tauri for secure system operations.",
       stack: "Julia · Rust · Tauri · React · Docker · AI/ML · SQLite/Postgres",
     },
+
+    {
+      slug: "titan-auditor",
+      titleImage: "/projects/titan-auditor/titan-logo4.png",
+      titleImageWidth: 240,
+      titleImageHeight: 60,
+      videoDemo: "/projects/titan-auditor/titan-demo.mp4",
+      description:
+        "Automated financial auditor: extracts CVM/SEC/PDF data, normalizes statements, computes metrics (Z‑Score, DuPont, annualized ROE, PDD) and generates LLM-backed reports via a Streamlit dashboard.",
+      stack: "Python · Streamlit · Pandas · NumPy · Git · CVM/SEC parsing · LLMs",
+    },
+
+    {
+      slug: "aqa",
+      titleImage: "/projects/aqa/aqa-logo-complete.png",
+      titleImageWidth: 360,
+      titleImageHeight: 80,
+      videoDemo: "/projects/aqa/aqa-trailer.mp4",
+      description:
+        "AI platform that automatically generates, validates, and executes API tests. Create smart test plans with LLMs and run them at high speed with a powerful Rust-based execution engine.",
+      stack:
+        "Python · FastAPI · Pydantic · Rust · Click · Next.js · TypeScript · Zustand · Tailwind · WebSockets · OpenAI",
+    },
+
+    {
+      slug: "amarok-dev",
+      titleImage: "/projects/amarok-dev/logo-lipeamarok2.png",
+      titleImageWidth: 180,
+      titleImageHeight: 60,
+      videoDemo: "/projects/amarok-dev/trailer.mp4",
+      description:
+        "Yes, you're navigating right now 😄. Personal developer portfolio showcasing full-stack projects, technical background, and experimentations with AI-driven architectures, Web3 tooling and high-performance computing.",
+      stack: "Next.js · React · TypeScript · TailwindCSS · Vercel · GitHub",
+    },
   ];
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-gradient-to-br from-[#0e0e10] via-[#151517] to-[#1d1d1f] text-gray-200 p-10 pt-12">
-      <div className="max-w-6xl w-full">
+    <main className="flex min-h-screen flex-col items-center bg-gradient-to-br from-[#0e0e10] via-[#151517] to-[#1d1d1f] text-gray-200 pt-12 overflow-hidden">
+      <div className="w-full">
         {/* Título da página */}
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white text-center mb-7">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white text-center mb-4">
           Featured Projects
         </h1>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {projects.map((project, i) => (
+        {/* Navigation Arrows */}
+        <div className="flex justify-between px-12 md:px-24 lg:px-40 mb-4">
+          <button
+            onMouseEnter={() => setSpeedMultiplier(-2)}
+            onMouseLeave={() => setSpeedMultiplier(1)}
+            className="w-10 h-10 rounded-full flex items-center justify-center text-gray-500 hover:text-white transition-all duration-300"
+            aria-label="Reverse"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            onMouseEnter={() => setSpeedMultiplier(3)}
+            onMouseLeave={() => setSpeedMultiplier(1)}
+            className="w-10 h-10 rounded-full flex items-center justify-center text-gray-500 hover:text-white transition-all duration-300"
+            aria-label="Faster"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+
+        {/* Scrolling track */}
+        <div
+          ref={trackRef}
+          className={`flex gap-8 py-4 ${isVisible ? "opacity-100" : "opacity-0"}`}
+          style={{ width: "fit-content" }}
+        >
+          {/* Render projects twice for seamless loop */}
+          {[...projects, ...projects].map((project, i) => (
             <Link
               key={i}
               href={`/projects/${project.slug}`}
-              className={`block rounded-2xl p-8 bg-white/5 backdrop-blur-xl border border-white/10
-                         shadow-xl transition-all duration-300 cursor-pointer group
-                         flex flex-col h-[520px] overflow-hidden
-                         hover:scale-[1.03]
-                         hover:shadow-[0_20px_60px_-15px_rgba(91,159,227,0.4)]
-                         hover:border-[#5B9FE3]/40
-                         hover:bg-white/8
-                         ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{
-                transitionDelay: `${i * 150}ms`,
-                transitionDuration: "600ms",
-                transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
-              }}
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              className={`block rounded-2xl p-6 bg-white/5 backdrop-blur-xl border border-white/10
+                           shadow-xl transition-all duration-300 cursor-pointer group
+                           flex flex-col h-[480px] w-[320px] flex-shrink-0 overflow-hidden
+                           hover:scale-[1.03]
+                           hover:shadow-[0_20px_60px_-15px_rgba(91,159,227,0.4)]
+                           hover:border-[#5B9FE3]/40
+                           hover:bg-white/8`}
             >
               {/* Video Demo ou Placeholder */}
               <div className="h-40 flex-shrink-0 rounded-xl overflow-hidden border border-white/10 transition-all duration-300 group-hover:border-[#5B9FE3]/30">
@@ -92,7 +203,7 @@ export default function ProjectsPage() {
               </div>
 
               {/* Título + Logo */}
-              <div className="mt-8 flex items-center justify-center gap-4 relative h-16 flex-shrink-0">
+              <div className="mt-6 flex items-center justify-center gap-4 relative h-14 flex-shrink-0">
                 {project.titleImage ? (
                   <>
                     <Image
@@ -134,12 +245,12 @@ export default function ProjectsPage() {
               </div>
 
               {/* Descrição */}
-              <p className="mt-4 text-gray-400 text-sm leading-relaxed text-center flex-grow px-1">
+              <p className="mt-3 text-gray-400 text-xs leading-relaxed text-center flex-grow">
                 {project.description}
               </p>
 
               {/* Stack */}
-              <p className="mt-6 text-xs text-gray-500 text-center tracking-wide flex-shrink-0">
+              <p className="mt-4 text-[11px] text-gray-500 text-center tracking-wide flex-shrink-0">
                 Stack: <span className="text-gray-300">{project.stack}</span>
               </p>
             </Link>
