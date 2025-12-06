@@ -11,8 +11,8 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "amarok.dev",
-  description: "Portfolio of Filipe Amarok — in development.",
+  title: "lipeamarok.dev",
+  description: "Building freedom. Personal portfolio of Filipe Arouck.",
   icons: {
     icon: [
       { url: "/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
